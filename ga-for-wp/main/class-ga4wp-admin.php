@@ -7,9 +7,8 @@ if (!defined('ABSPATH')) {
  * Declaring Class
  */
 class GA4WP_Admin
-{	
+{   
 	public $pages;
-	
 	public function __construct()
 	{
 		/* ading admin view class */
@@ -69,7 +68,7 @@ class GA4WP_Admin
 			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 48 hours"));
 		}
 		if (wp_verify_nonce($nonce, 'alreadydid-nonce')) {
-			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 1800 hours"));
+			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
 		}
 	}
 	/* adding analytics code to front for triggering events */

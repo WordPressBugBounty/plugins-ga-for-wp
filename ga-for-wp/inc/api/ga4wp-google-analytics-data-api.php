@@ -13,6 +13,7 @@ class GA4WP_Google_Analytics_Data_API
   protected $request_headers = array();
   protected $response_code;
   protected $response_message;
+  protected $response_headers;
   protected $raw_response_body;
   protected $response;
   protected $property_id;
@@ -259,7 +260,7 @@ class GA4WP_Google_Analytics_Data_API
     $this->response_code = wp_remote_retrieve_response_code($response);
     $this->response_message = wp_remote_retrieve_response_message($response);
     $this->raw_response_body = wp_remote_retrieve_body($response);
-    $response_headers = wp_remote_retrieve_headers($response);
+    $this->response_headers = wp_remote_retrieve_headers($response);
     if ($this->response_code == 200) {
       $this->response = json_decode($this->raw_response_body);
     } else {

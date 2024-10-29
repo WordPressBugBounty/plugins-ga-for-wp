@@ -123,10 +123,10 @@ class GA4WP_Main
 		if ($tracking_options = get_option('ga4wp_track_settings')) {
 			if (isset($tracking_options['track_ga_consent']) && $tracking_options['track_ga_consent']) {
 				$gtag_code_snippet .= 'gtag("consent", "default", {
-				ad_storage: "denied",
-				analytics_storage: "denied",
-				functionality_storage: "denied",
-				personalization_storage: "denied",
+				ad_storage: "granted",
+				analytics_storage: "granted",
+				functionality_storage: "granted",
+				personalization_storage: "granted",
 				security_storage: "granted",
 				wait_for_update: 2000, 
 				});
@@ -157,8 +157,8 @@ class GA4WP_Main
 		}
 		$advance_options = get_option('ga4wp_advance_settings');
 		if ($advance_options) {
-			if (isset($advance_options['google_optimize']) && $advance_options['google_optimize'] && isset($advance_options['google_optimize_code']) && ($advance_options['google_optimize_code'] !== '')) {
-				$addon_values[] = "'optimize_id':'{$advance_options['google_optimize_code']}'";
+			if (isset($advance_options['google_analytics_debug_mode']) && $advance_options['google_analytics_debug_mode']) {
+				$addon_values[] = "'debug_mode': true";
 			}
 			if (isset($advance_options['google_adword']) && $advance_options['google_adword'] && isset($advance_options['google_adword_code']) && ($advance_options['google_adword_code'] !== '')) {
 				$gtag_code_snippet .= "gtag('config', '{$advance_options['google_adword_code']}');";
@@ -217,6 +217,15 @@ class GA4WP_Main
 			$addon_values[] = "'send_page_view': false";
 			if (isset($tracking_options['anonymize_ip']) && $tracking_options['anonymize_ip']) {
 				$addon_values[] = "'anonymize_ip': true";
+			}
+		}
+		$advance_options = get_option('ga4wp_advance_settings');
+		if ($advance_options) {
+			if (isset($advance_options['google_adword']) && $advance_options['google_adword'] && isset($advance_options['google_adword_code']) && ($advance_options['google_adword_code'] !== '')) {
+				$gtag_code_snippet .= "gtag('config', '{$advance_options['google_adword_code']}');";
+			}
+			if (isset($advance_options['google_analytics_debug_mode']) && $advance_options['google_analytics_debug_mode']) {
+				$addon_values[] = "'debug_mode': true";
 			}
 		}
 		if (!empty($addon_values) && is_array($addon_values)) {
@@ -425,7 +434,7 @@ class GA4WP_Main
 				'item_id' => $this->ga4wp_esc($item_data[0]['item_id']),
 				'item_name' => $this->ga4wp_esc($item_data[0]['item_name']),
 				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
-				'item_category' => $this->ga4wp_esc($item_data[0]['item_category']),
+				'item_category' => $this->ga4wp_esc(isset($item_data[0]['item_category']) ? $item_data[0]['item_category'] : ''),
 				'item_list_id' => $this->ga4wp_esc($item_list_id),
 				'item_list_name' => $this->ga4wp_esc($item_list_name),
 				'price' => $this->ga4wp_esc($item_data[0]['price']),
@@ -507,7 +516,7 @@ class GA4WP_Main
 				item_id: "' . $this->ga4wp_esc($item_data[0]['item_id']) . '",
 				item_name: "' . $this->ga4wp_esc($item_data[0]['item_name']) . '",
 				currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
-				item_category: "' . $this->ga4wp_esc($item_data[0]['item_category']) . '",
+				item_category: "' . $this->ga4wp_esc(isset($item_data[0]['item_category']) ? $item_data[0]['item_category'] : '') . '",
 				item_list_id: "' . $this->ga4wp_esc($item_list_id) . '",
 				item_list_name: "' . $this->ga4wp_esc($item_list_name) . '",
 				price: ' . $this->ga4wp_esc($item_data[0]['price']) . ',
@@ -608,14 +617,11 @@ class GA4WP_Main
 	private function init_default_params($track_user = true)
 	{
 		$this->data['client_id'] = $this->cid;
-		if ($track_user && (is_user_logged_in())) {
-			if (isset($_COOKIE['opt_in'])) {
-				if ($_COOKIE['opt_in'] == 'yes') {
-					$this->data['user_id'] = esc_js(get_current_user_id());
-				}
-			} else {
+		$tracking_options = get_option('ga4wp_track_settings');
+		if (isset($tracking_options['not_track_user_id']) && $tracking_options['not_track_user_id']) {
+			/* do nothing */
+		}elseif ($track_user && (is_user_logged_in())) {
 				$this->data['user_id'] = esc_js(get_current_user_id());
-			}
 		}
 		return $this->data;
 	}
@@ -627,6 +633,19 @@ class GA4WP_Main
 			$user_agent = $this->ga4wp_get_user_agent();
 		} else {
 			$user_agent = sprintf('%s/%s (WordPress/%s)', 'GA4WP', GA4WP_VERSION, $GLOBALS['wp_version']);
+		}
+		$advance_options = get_option('ga4wp_advance_settings');
+		if (isset($advance_options['google_analytics_debug_mode']) && $advance_options['google_analytics_debug_mode']) {
+			if (isset($this->data['events']) && is_array($this->data['events'])) {
+				foreach ($this->data['events'] as $group => &$data) {
+					if (isset($data['params']) && is_array($data['params'])) {
+						// Add the new element to the 'items' array
+						$data['params']['debug_mode'] = 1;
+					} else {
+						$data['params']['debug_mode'] = 1;
+					}
+				}
+			}
 		}
 		$args = array(
 			'method' => 'POST',
@@ -649,14 +668,20 @@ class GA4WP_Main
 			$categories = wc_get_product_terms($product_id, 'product_cat', array('orderby' => 'parent', 'order' => 'DESC'));
 			if (is_array($categories) || !empty($categories)) {
 				$product_category = '';
+				$j = 0;
 				foreach ($categories as $category) {
-					if (isset($category->name) && is_object($category)) {
-						$product_category .= $category->name . '/';
+					if (isset($category->name) && is_object($category) && ($j == 0)){
+						$item['item_category'] = $this->ga4wp_esc(isset($category->name) ? $category->name : '');
+					}elseif(isset($category->name) && is_object($category) && ($j > 0)){
+						$item['item_category'.$j] = $this->ga4wp_esc(isset($category->name) ? $category->name : '');
 					}
 				}
-				if (isset($product_category)) {
-					$product_category = trim($product_category, '/'); // product category
-				}
+				$j++;
+			}
+			if($quantity < 0){
+				$quantity = $quantity*(-1);
+			}elseif($quantity == 0){
+				$quantity = 1; 
 			}
 			$item['item_id'] = $this->ga4wp_esc(strval($product_identifier));
 			$item['item_name'] = $this->ga4wp_esc($product->get_title());
@@ -945,9 +970,9 @@ class GA4WP_Main
 	{
 		if (class_exists('WooCommerce')) {
 			if (is_shop()) {
-				/* if (!$this->avoid_multi_trigger()) {
+				if (!$this->avoid_multi_trigger()) {
 					return;
-				} */
+				}
 				if(!empty($this->api_secret)){
 					$this->data = $this->init_default_params();
 					$this->data['events'][0]= array(
@@ -968,36 +993,39 @@ class GA4WP_Main
 	public function viewed_cart()
 	{
 		if (is_cart()) {
-			/* if (!$this->avoid_multi_trigger()) {
+			if (!$this->avoid_multi_trigger()) {
 				return;
-			} */
-			$i = 0;
-			$items_data = null;
-			foreach (WC()->cart->get_cart() as $item) {
-				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
-				$items_data[$i] = $this->get_product_details($product_id, $item['quantity'], $i);
-				$i++;
 			}
-			$items_data = json_encode($items_data);
+			$items_data = array();
+			foreach (WC()->cart->get_cart() as $item) {
+				$i = 0;
+				$i++;
+				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
+				$items_data[] = $this->get_product_details($product_id, $item['quantity'], $i);
+			}
 			$cart_value = floatval(preg_replace('#[^\d.]#', '', WC()->cart->get_cart_contents_total()));
+			$params = array(
+				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+				'items' => $items_data,
+				'value' => $this->ga4wp_esc($cart_value),
+			);
+			foreach ($params as $key => $value) {
+				if (empty($value)) {
+					unset($params[$key]);
+				}
+			}
 			if(!empty($this->api_secret)){
+				$this->data = $this->init_default_params();
 				$this->data['events'][0]= array(
 					'name' => 'view_cart',
-					'params' => array(
-						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
-						'items'=> $items_data,
-						'value' => $this->ga4wp_esc($cart_value),
-					),
+					'params' => $params,
 				);
 				$this->making_remote_request();
 				$this->params = null;
 				$this->data = null;
 			}else{
-				$ga4wp_analytics_code = 'gtag("event", "view_cart", {
-					currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
-					value:' . $this->ga4wp_esc($cart_value) . ',
-					items:' . $items_data . '
-				});';
+				$params = json_encode($params);
+				$ga4wp_analytics_code = 'gtag("event", "view_cart", '.$params.');';
 				$this->ga4wp_set_transient($ga4wp_analytics_code);
 			}
 		}
@@ -1006,13 +1034,12 @@ class GA4WP_Main
 	/* recording event for viewing product -completed*/
 	public function viewed_product()
 	{
-		/* if (!$this->avoid_multi_trigger()) {
+		if (!$this->avoid_multi_trigger()) {
 			return;
-		} */
+		} 
 		$product_id = get_the_ID();
 		$product = wc_get_product($product_id);
 		$items_data[] = $this->get_product_details($product_id);
-		$items_data = json_encode($items_data);
 		$this->data = $this->init_default_params();
 		$item_data[] = $this->get_product_details($product_id);
 		if(!empty($this->api_secret)){
@@ -1028,6 +1055,7 @@ class GA4WP_Main
 			$this->params = null;
 			$this->data = null;
 		}else{
+			$items_data = json_encode($items_data);
 			$ga4wp_analytics_code = 'gtag("event", "view_item", {
 				currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
 				value:' . $this->ga4wp_esc($product->get_price()) . ',
@@ -1270,9 +1298,9 @@ class GA4WP_Main
 	/* recording event for initiating checkout -completed */
 	public function begin_checkout()
 	{
-		/* if (!$this->avoid_multi_trigger()) {
+		if (!$this->avoid_multi_trigger()) {
 			return;
-		}*/
+		}
 		if(!empty($this->api_secret)){
 			foreach ( WC()->cart->get_cart() as $item ) {
 				$i = 0;
@@ -1283,19 +1311,27 @@ class GA4WP_Main
 			$this->data = $this->init_default_params();
 			$checkout_value = floatval( preg_replace( '#[^\d.,]#', '',WC()->cart->get_cart_total()));
 			$applied_coupons = WC()->cart->get_applied_coupons();
-			$coupon_code = null;
+			$coupon_code = '';
 			foreach( $applied_coupons as $coupon){
 				$coupon_code .= $coupon.'/';
 			}
-			$coupon_code = trim($coupon_code,'/');
+			if (!empty($coupon_code)) {
+				$coupon_code = trim($coupon_code,'/');
+			}
+			$params = array(
+				'coupon' => $this->ga4wp_esc($coupon_code),
+				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+				'items'=> $items_data,
+				'value' => $this->ga4wp_esc($checkout_value),
+			);
+			foreach ($params as $key => $value) {
+				if (empty($value)) {
+					unset($params[$key]);
+				}
+			}
 			$this->data['events'][0]= array(
 				'name' => 'begin_checkout',
-				'params' => array(
-					'coupon' => $this->ga4wp_esc($coupon_code),
-					'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
-					'items'=> $items_data,
-					'value' => $this->ga4wp_esc($checkout_value),
-				),
+				'params' => $params,
 			);
 			$this->making_remote_request();
 			$this->params = null;
@@ -1309,20 +1345,26 @@ class GA4WP_Main
 			}
 			$checkout_value = floatval(preg_replace('#[^\d.,]#', '', WC()->cart->get_cart_contents_total()));
 			$applied_coupons = WC()->cart->get_applied_coupons();
-			$coupon_code = null;
+			$coupon_code = '';
 			foreach ($applied_coupons as $coupon) {
 				$coupon_code .= $coupon . '/';
 			}
 			if (!empty($coupon_code)) {
 				$coupon_code = trim($coupon_code, '/');
 			}
-			$items_data = json_encode($items_data);
-			$ga4wp_analytics_code = 'gtag("event", "begin_checkout", {
-				currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
-			value: ' . $this->ga4wp_esc($checkout_value) . ',
-			coupon: "' . $this->ga4wp_esc($coupon_code) . '",
-			items:' . $items_data . ',
-			});';
+			$params = array(
+				'coupon' => $this->ga4wp_esc($coupon_code),
+				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+				'items'=> $items_data,
+				'value' => $this->ga4wp_esc($checkout_value),
+			);
+			foreach ($params as $key => $value) {
+				if (empty($value)) {
+					unset($params[$key]);
+				}
+			}
+			$params = json_encode($params);
+			$ga4wp_analytics_code = 'gtag("event", "begin_checkout",'.$params.');';
 			$this->ga4wp_set_transient($ga4wp_analytics_code);
 		}
 	}
@@ -1384,10 +1426,44 @@ class GA4WP_Main
 	/* selected shipping method */
 	public function added_shipping_method()
 	{
-		
-		$live_js = "function get_shipping_event (shipping_method) {
-					return gtag( 'event','add_shipping_info',{'shipping_tier' :shipping_method});
-				}";
+		if(WC()->cart->get_cart_contents_count()> 0 ){
+			foreach (WC()->cart->get_cart() as $item) {
+				$i = 0;
+				$i++;
+				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
+				$items_data[] = $this->get_product_details($product_id, $item['quantity'], $i);
+			}
+		}else{
+			$items_data = array();
+		}
+		$applied_coupons = WC()->cart->get_applied_coupons();
+		$coupon_code = '';
+		foreach ($applied_coupons as $coupon) {
+			$coupon_code .= $coupon . '/';
+		}
+		if (!empty($coupon_code)) {
+			$coupon_code = trim($coupon_code, '/');
+		}
+		$items_data = json_encode($items_data);
+		$checkout_value = floatval(preg_replace('#[^\d.,]#', '', WC()->cart->get_cart_contents_total()));
+		if(!empty($coupon_code)){
+			$live_js = "function get_shipping_event (shipping_method) {
+							return gtag( 'event','add_shipping_info',{
+								shipping_tier :shipping_method,
+								coupon: ".$this->ga4wp_esc($coupon_code).",
+								items:".$items_data.",
+								value: ".$this->ga4wp_esc($checkout_value).",
+							});
+						}";
+		}else{
+			$live_js = "function get_shipping_event (shipping_method) {
+				return gtag( 'event','add_shipping_info',{
+					shipping_tier :shipping_method,
+					items:".$items_data.",
+					value: ".$this->ga4wp_esc($checkout_value).",
+				});
+			}";
+		}
 		$js = '';
 		$js = $live_js;
 		$js .= "var selected_shipping_method = jQuery( 'input[name^=\'shipping_method\']:checked' ).val();";
@@ -1400,9 +1476,44 @@ class GA4WP_Main
 	/* selected payment method */
 	public function added_payment_method()
 	{
-		$live_js = "function get_paymnet_event (payment_method) {
-						return gtag( 'event','add_payment_info',{'payment_type' :payment_method});
-					}";
+		if(WC()->cart->get_cart_contents_count()> 0 ){
+			foreach (WC()->cart->get_cart() as $item) {
+				$i = 0;
+				$i++;
+				$product_id = !empty($item['variation_id']) ? $item['variation_id'] : $item['product_id'];
+				$items_data[] = $this->get_product_details($product_id, $item['quantity'], $i);
+			}
+		}else{
+			$items_data = array();
+		}
+		$applied_coupons = WC()->cart->get_applied_coupons();
+		$coupon_code = '';
+		foreach ($applied_coupons as $coupon) {
+			$coupon_code .= $coupon . '/';
+		}
+		if (!empty($coupon_code)) {
+			$coupon_code = trim($coupon_code, '/');
+		}
+		$items_data = json_encode($items_data);
+		$checkout_value = floatval(preg_replace('#[^\d.,]#', '', WC()->cart->get_cart_contents_total()));
+		if(!empty($coupon_code)){
+			$live_js = "function get_paymnet_event (payment_method) {
+							return gtag( 'event','add_payment_info',{
+							payment_type :payment_method,
+							coupon: ".$this->ga4wp_esc($coupon_code).",
+							items:".$items_data.",
+							value: ".$this->ga4wp_esc($checkout_value).",
+							});
+						}";
+		}else{
+			$live_js = "function get_paymnet_event (payment_method) {
+				return gtag( 'event','add_payment_info',{
+				payment_type :payment_method,
+				items:".$items_data.",
+				value: ".$this->ga4wp_esc($checkout_value).",
+				});
+			}";
+		}
 		$js = '';
 		$js = $live_js;
 		$js .= "var selected_payment_method = jQuery( 'input[name=\'payment_method\']:checked' ).val();";
@@ -1505,18 +1616,24 @@ class GA4WP_Main
 				'quantity'=>$item['qty'],
 				);
 			}
+			$params = array(
+				'coupon' => $this->ga4wp_esc($coupons_list),
+				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+				'items'=> $items_data,
+				'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+				'value' => $this->ga4wp_esc($order->get_total()),
+				'shipping' => $this->ga4wp_esc($order->get_total_shipping()),
+				'tax' => $this->ga4wp_esc($order->get_total_tax()),
+			);
+			foreach ($params as $key => $value) {
+				if (empty($value)) {
+					unset($params[$key]);
+				}
+			}
 			$this->data = $this->init_default_params();
 			$this->data['events'][0]= array(
 				'name' => 'purchase',
-				'params' => array(
-					'coupon' => $this->ga4wp_esc($coupons_list),
-					'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
-					'items'=> $items_data,
-					'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
-					'value' => $this->ga4wp_esc($order->get_total()),
-					'shipping' => $this->ga4wp_esc($order->get_total_shipping()),
-					'tax' => $this->ga4wp_esc($order->get_total_tax()),
-				),
+				'params' => $params,
 			);
 			$this->making_remote_request();
 			$this->params = null;
@@ -1533,16 +1650,22 @@ class GA4WP_Main
 					'quantity' => $this->ga4wp_esc($item['qty']),
 				);
 			}
-			$items_data = json_encode($items_data);
-			$ga4wp_analytics_code = 'gtag("event", "purchase", {
-				transaction_id: "' . $this->ga4wp_esc($order->get_order_number()) . '",
-				value: ' . $this->ga4wp_esc($order->get_total()) . ',
-				tax: ' . $this->ga4wp_esc($order->get_total_tax()) . ',
-				shipping: ' . $this->ga4wp_esc($order->get_total_shipping()) . ',
-				currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
-				coupon: "' . $this->ga4wp_esc($coupons_list) . '",
-				items:' . $items_data . ',
-				});';
+			$params = array(
+				'coupon' => $this->ga4wp_esc($coupons_list),
+				'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+				'items'=> $items_data,
+				'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+				'value' => $this->ga4wp_esc($order->get_total()),
+				'shipping' => $this->ga4wp_esc($order->get_total_shipping()),
+				'tax' => $this->ga4wp_esc($order->get_total_tax()),
+			);
+			foreach ($params as $key => $value) {
+				if (empty($value)) {
+					unset($params[$key]);
+				}
+			}
+			$params = json_encode($params);
+			$ga4wp_analytics_code = 'gtag("event", "purchase",'.$params.');';
 			$this->ga4wp_set_transient($ga4wp_analytics_code);
 		}
 		update_post_meta($order->get_id(), 'ga4wp_already_tracked', 'yes');
@@ -1614,16 +1737,38 @@ class GA4WP_Main
 						$refund_items_data[] = $this->get_product_details($product_id , $item['qty'], $i );
 					}
 				}
+				$total_refund = 0;
+				$refund_value = $refund->get_amount();
+				if(!empty($refund_items_data) && is_array($refund_items_data)){
+					foreach($refund_items_data as $refund_item){
+						$total_refund = $total_refund + ($refund_item['quantity']*$refund_item['price']);
+					}
+				}
+				if($total_refund == $refund_value){
+					$params = array(
+						'coupon' => $this->ga4wp_esc($coupons_list),
+						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+						'items'=> $refund_items_data,
+						'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+						'value' => $this->ga4wp_esc($refund->get_amount()),
+					);
+				}else{
+					$params = array(
+						'coupon' => $this->ga4wp_esc($coupons_list),
+						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+						'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+						'value' => $this->ga4wp_esc($refund->get_amount()),
+					);
+				}
+				foreach ($params as $key => $value) {
+					if (empty($value)) {
+						unset($params[$key]);
+					}
+				}
 				$this->data = $this->init_default_params();
 				$this->data['events'][0]= array(
 					'name' => 'refund',
-					'params' => array(
-						'coupon' => $this->ga4wp_esc($coupons_list),
-						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
-						//'items'=> $refund_items_data,
-						'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
-						'value' => $this->ga4wp_esc($refund->get_amount()),
-					),
+					'params' => $params,
 				);
 				$this->making_remote_request();
 				$this->params = null;
@@ -1640,13 +1785,36 @@ class GA4WP_Main
 						$refund_items_data[] = $this->get_product_details($product_id, $item['qty'], $i);
 					}
 				}
-				$refund_items_data = json_encode($refund_items_data);
-				$ga4wp_analytics_code = 'gtag("event", "refund", {
-					transaction_id: "' . $this->ga4wp_esc($order->get_order_number()) . '",
-				value: ' . $this->ga4wp_esc($refund->get_amount()) . ',
-				currency: "' . $this->ga4wp_esc(get_woocommerce_currency()) . '",
-				coupon: "' . $this->ga4wp_esc($coupons_list) . '",
-				});';
+				$total_refund = 0;
+				$refund_value = $refund->get_amount();
+				if(!empty($refund_items_data) && is_array($refund_items_data)){
+					foreach($refund_items_data as $refund_item){
+						$total_refund = $total_refund + ($refund_item['quantity']*$refund_item['price']);
+					}
+				}
+				if($total_refund == $refund_value){
+					$params = array(
+						'coupon' => $this->ga4wp_esc($coupons_list),
+						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+						'items'=> $refund_items_data,
+						'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+						'value' => $this->ga4wp_esc($refund->get_amount()),
+					);
+				}else{
+					$params = array(
+						'coupon' => $this->ga4wp_esc($coupons_list),
+						'currency' => $this->ga4wp_esc(get_woocommerce_currency()),
+						'transaction_id'=> $this->ga4wp_esc($order->get_order_number()),
+						'value' => $this->ga4wp_esc($refund->get_amount()),
+					);
+				}
+				foreach ($params as $key => $value) {
+					if (empty($value)) {
+						unset($params[$key]);
+					}
+				}
+				$params = json_encode($params);
+				$ga4wp_analytics_code = 'gtag("event", "refund",'.$params.');';
 				$this->ga4wp_set_transient($ga4wp_analytics_code);
 			}
 			update_post_meta($refund_id, 'ga4wp_refund_already_tracked', 'yes');

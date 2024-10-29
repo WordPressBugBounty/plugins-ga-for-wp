@@ -26,9 +26,6 @@ if (isset($_POST['ga4wp_dash_submit']) && wp_verify_nonce($_POST['ga4wp_nonce_he
       } elseif ($ga4wp_dash_settings_save['report_frame'] == 'Last 7 days') {
         $ga4wp_dash_settings_save['report_to'] = date('Y-m-d', strtotime('-1 day'));
         $ga4wp_dash_settings_save['report_from'] = date('Y-m-d', strtotime('-8 day'));
-      } elseif ($ga4wp_dash_settings_save['report_frame'] == 'Today') {
-        $ga4wp_dash_settings_save['report_to'] = date('Y-m-d', strtotime('now'));
-        $ga4wp_dash_settings_save['report_from'] = date('Y-m-d', strtotime('now'));
       } else {
         $ga4wp_dash_settings_save['report_to'] = date('Y-m-d', strtotime('-1 day'));
         $ga4wp_dash_settings_save['report_from'] = date('Y-m-d', strtotime('-31 day'));
@@ -109,7 +106,7 @@ if (strlen($errors) > 0) {
   <div class="divider top-mar-20" style="margin-bottom:20px"></div>
   <div class="ga4wp-row">
     <ul class="tabs">
-      <li class="tab ga4wp-col m1 s4"><a id="dash-tab" href="#dash">
+      <li class="tab ga4wp-col m2 s4"><a id="dash-tab" href="#dash">
           <?php _e('Dashboard', 'ga-for-wp-text'); ?>
         </a></li>
 	 <li class="tab ga4wp-col m1 s4"><a id="audience-pro-tab" href="#audience-pro">
@@ -134,7 +131,7 @@ if (strlen($errors) > 0) {
       <li class="tab ga4wp-col m1 s4"><a id="googleAdsense-pro-tab" href="#googleAdsense-pro">
       <span><?php _e('Google Adsense', 'ga4wp-text'); ?></span><i class="material-icons ga4wp_pro_icon info">info</i>
         </a></li>
-      <li class="tab ga4wp-col m1 s4"><a id="audience-pro-tab" href="#upgrade-pro">
+      <li class="tab ga4wp-col m2 s4"><a id="audience-pro-tab" href="#upgrade-pro">
           <?php _e('Upgrade', 'ga-for-wp-text'); ?><i class="material-icons ga4wp_pro_icon info">info</i>
         </a></li>
     </ul>
@@ -184,7 +181,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="acquisition-pro" class="ga4wp-col s12">
@@ -231,7 +228,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="behavior-pro" class="ga4wp-col s12">
@@ -278,7 +275,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="conversion-pro" class="ga4wp-col s12">
@@ -325,7 +322,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="googleAds-pro" class="ga4wp-col s12">
@@ -372,7 +369,7 @@ if (strlen($errors) > 0) {
         </div>  
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="googleAdsense-pro" class="ga4wp-col s12">
@@ -399,7 +396,7 @@ if (strlen($errors) > 0) {
       </div>
     </div>
     <div class="center-align top-mar-30">
-      <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
+      <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga4wp-text'); ?></a>
     </div>
   </div>
   <div id="upgrade-pro" class="ga4wp-col s12">
@@ -426,7 +423,7 @@ if (strlen($errors) > 0) {
         <?php _e('Please upgrade to unlock reports and stats associated with your website.', 'ga-for-wp-text'); ?>
       </h5>
       <div class="center-align top-mar-30">
-        <a class="waves-effect waves-light btn" href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade Now!', 'ga-for-wp-text'); ?></a>
+        <a class="waves-effect waves-light btn" href="https://ga4wp.com/pricing/"><?php _e('Upgrade Now!', 'ga-for-wp-text'); ?></a>
       </div>
     </div>      
   </div>

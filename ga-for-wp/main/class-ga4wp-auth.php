@@ -228,33 +228,14 @@ class GA4WP_Auth
 	/* Update plugin settings for latest update */
 	public function new_update_settings()
 	{
+		$ga4wp_settings = GA4WP_Settings::get_instance();
+		$defaults_track = $ga4wp_settings->init_ga4wp_track_defaults();
 		if (!get_option('ga4wp_track_settings')) {
-			$ga4wp_track_settings = null;
-			$ga4wp_auth_settings = get_option('ga4wp_auth_settings');
-			if (!empty($ga4wp_auth_settings)) {
-				if (isset($ga4wp_auth_settings['track_admin'])) {
-					$ga4wp_track_settings['track_admin'] = true;
-					unset($ga4wp_auth_settings['track_admin']);
-				}
-				if (isset($ga4wp_auth_settings['track_user_id'])) {
-					$ga4wp_track_settings['track_user_id'] = true;
-					unset($ga4wp_auth_settings['track_user_id']);
-				}
-				if (isset($ga4wp_auth_settings['enhanced_link_attribution'])) {
-					$ga4wp_track_settings['enhanced_link_attribution'] = true;
-					unset($ga4wp_auth_settings['enhanced_link_attribution']);
-				}
-				if (isset($ga4wp_auth_settings['anonymize_ip'])) {
-					$ga4wp_track_settings['anonymize_ip'] = true;
-					unset($ga4wp_auth_settings['anonymize_ip']);
-				}
-				if (isset($ga4wp_track_settings) && !empty($ga4wp_track_settings)) {
-					$ga4wp_auth_settings['manual_tracking'] = true;
-					$ga4wp_auth_settings['agreement'] = true;
-					update_option('ga4wp_track_settings', $ga4wp_track_settings);
-					update_option('ga4wp_auth_settings', $ga4wp_auth_settings);
-				}
-			}
+			update_option('ga4wp_track_settings', $defaults_track);
+		}
+		$defaults_event = $ga4wp_settings->init_ga4wp_event_defaults();
+		if (!get_option('ga4wp_event_settings')) {
+			update_option('ga4wp_event_settings', $defaults_event);
 		}
 	}
 
@@ -838,10 +819,11 @@ class GA4WP_Auth
 		update_option('ga4wp_current_tab_id', $tab_id);
 		if (stripos($tab_id, 'et-')) {
 			if (stripos($tab_id, 'track')) {
-				$defaults = null;
+				$ga4wp_settings = GA4WP_Settings::get_instance();
+				$defaults_track = $ga4wp_settings->init_ga4wp_track_defaults();
 				if (!get_option('ga4wp_track_settings')) {
-					$ga4wp_track_settings = $defaults;
-					update_option('ga4wp_track_settings', $defaults);
+					$ga4wp_track_settings = $defaults_track;
+					update_option('ga4wp_track_settings', $defaults_track);
 				} else {
 					$ga4wp_track_settings = get_option('ga4wp_track_settings');
 				} ?>
@@ -1054,6 +1036,23 @@ class GA4WP_Auth
 								</div>
 							</div>
 							<div class="input-field ga4wp-col m6">
+								<h6>
+									<?php _e('Google Analytics Debug Mode', 'ga4wp-text'); ?>
+								</h6>
+								<p>
+									<label>
+										<input type="checkbox" name="ga4wp_advance_settings[google_analytics_debug_mode]"
+											id="ga4wp_advance_settings[google_analytics_debug_mode]" value="yes" <?php checked(isset($ga4wp_advance_settings['google_analytics_debug_mode']) && $ga4wp_advance_settings['google_analytics_debug_mode']); ?> />
+										<span>
+											<?php _e('Enable Google Analytics Debug Mode', 'ga4wp-text'); ?>
+										</span>
+									</label>
+									<span class="helper-text" data-error="wrong" data-success="right"><a
+											href=" https://ga4wp.com/google-analytics-debug-mode/" target="_blank">
+											<?php _e('Know More About Google Debug Mode', 'ga4wp-text'); ?>
+										</a></span>
+								</p>
+								<div style="padding:10px 0px"></div>
 								<h6>
 									<?php _e('Google Adwords', 'ga-for-wp-text'); ?>
 								</h6>

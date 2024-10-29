@@ -85,9 +85,9 @@ class GA4WP_Settings {
 				'product_single_track'=> true,
 				'product_archive_track'=> true,
 				'disable_on_hold_conversion' => true,
-				'anonymize_ip'=> false,
+				'anonymize_ip'=> true,
 				'track_interest' => false,
-				'not_track_user_id' => false,
+				'not_track_user_id' => true,
 				'track_ga_consent'=> false,
 			);
 			/* Event Tracking Settings */
@@ -166,9 +166,9 @@ class GA4WP_Settings {
 				'track_admin' => true,
 				'not_track_pageviews' => false,
 				'enhanced_link_attribution'=> true,
-				'anonymize_ip'=> false,
+				'anonymize_ip'=> true,
 				'track_interest' => false,
-				'not_track_user_id' => false,
+				'not_track_user_id' => true,
 				'track_ga_consent'=> false,
 			);
 			/* Event Tracking Settings */
@@ -353,11 +353,13 @@ class GA4WP_Settings {
 			//'google_optimize_code' => '',
 			'facebook_pixel'=> true,
 			'facebook_pixel_code'=> '',
+			'google_measurement_api' => '',
+			'google_analytics_debug_mode' => false,
+			'google_analytics_debug_mode'=> false,
 			'google_adword' => true,
 			'google_adword_code' => '',
 			'google_adword_label' => '',
 			'google_measurement' => true,
-			'google_measurement_api' => '',
 		);
 		/* ga4wp features list */
 		$this->ga4wp_features_list = array(
@@ -419,6 +421,10 @@ class GA4WP_Settings {
 			'facebook_pixel_code'          => array(
 				'filter' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
 						'flags'  => FILTER_REQUIRE_SCALAR,
+			),
+			'google_analytics_debug_mode' =>array(
+				'filter' => FILTER_VALIDATE_BOOLEAN,
+				'flags'  => FILTER_REQUIRE_SCALAR,
 			),
 			'google_adword'          => array(
 				'filter' => FILTER_VALIDATE_BOOLEAN,
@@ -498,10 +504,10 @@ class GA4WP_Settings {
 	/* Defining Defaults for advance Settings */
 	public function init_ga4wp_advance_defaults() {
 		$defaults = array(
-			'google_optimize' => true,
-			'google_optimize_code' => '',
 			'facebook_pixel'=> true,
 			'facebook_pixel_code'=> '',
+			'google_analytics_debug_mode' => false,
+			'google_measurement_api' => '',
 			'google_adword' => true,
 			'google_adword_code' => '',
 			'google_adword_label' => '',
@@ -519,9 +525,9 @@ class GA4WP_Settings {
 				'product_single_track'=> true,
 				'product_archive_track'=> true,
 				'disable_on_hold_conversion' => true,
-				'anonymize_ip'=> false,
+				'anonymize_ip'=> true,
 				'track_interest' => false,
-				'not_track_user_id' => false,
+				'not_track_user_id' => true,
 				'track_ga_consent'=> false,
 			);
 		}else{
@@ -529,9 +535,9 @@ class GA4WP_Settings {
 				'track_admin' => true,
 				'not_track_pageviews' => false,
 				'enhanced_link_attribution'=> true,
-				'anonymize_ip'=> false,
+				'anonymize_ip'=> true,
 				'track_interest' => false,
-				'not_track_user_id' => false,
+				'not_track_user_id' => true,
 				'track_ga_consent'=> false,
 			);
 		}

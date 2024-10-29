@@ -96,7 +96,7 @@ class GA4WP_Admin_View extends GA4WP_View
                 </li>
               </a>
             <?php } elseif ($tab == 'upgrade') { ?>
-              <a href="<?php echo gfw_fs()->get_upgrade_url(); ?>"
+              <a href="https://ga4wp.com/pricing/"
                 class="collection-item <?php echo ($tab === $this->get_current_tab() ? 'white z-depth-1' : null); ?>">
                 <li><span>
                     <?php echo esc_html($name); ?>

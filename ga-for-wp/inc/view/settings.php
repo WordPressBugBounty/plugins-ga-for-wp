@@ -111,7 +111,7 @@ if (strlen($errors) > 0) {
     <div class="ga4wp-col m6 s12">
       <?php if (gfw_fs()->is_not_paying() && !(gfw_fs()->is_trial())) { ?>
         <a class="waves-effect waves-light btn right upgrade-btn" style="margin-left:15px"
-          href="<?php echo gfw_fs()->get_upgrade_url(); ?>"><?php _e('Upgrade to Pro!', 'ga-for-wp-text'); ?></a>
+          href="https://ga4wp.com/pricing/"><?php _e('Upgrade to Pro!', 'ga-for-wp-text'); ?></a>
       <?php } ?>
       <a class="waves-effect waves-light btn right" href="https://ga4wp.com/documentation/" target="_blank"><i
           class="material-icons left">book</i>
