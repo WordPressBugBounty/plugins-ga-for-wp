@@ -1,13 +1,13 @@
 === Google Analytics Plugin for WordPress by GA4WP ===
 Contributors: passionatebrains, freemius
 Plugin Name: Google Analytics for WordPress by GA4WP
-Tags: analytics, wordpress analytics, google analytics, analytics dashboard, statistics
+Tags: wordpress analytics, google analytics, analytics dashboard, statistics, analytics, woocommerce analytics
 Author URI: https://ga4wp.com
 Author: passionatebrains
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.0
-Stable tag: 2.6.0
+Stable tag: 2.7.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Google Analytics plugin for WordPress by GA4WP is Lightweight, Easy to connect and comes with plenty of great features.This plugin also adds Facebook Pixel and Google Ads conversion tracking for your WordPress website.
@@ -97,6 +97,9 @@ Presently yes, you can contact us from our website.
 Please send you suggestion from Plugin website or write down in our plugin forum.
 
 == Changelog ==
+= 2.7.0 =
+Latest Freemius SDK Update
+
 = 2.6.0 =
 Latest Freemius SDK Update
 Minor tracking issues resolved
