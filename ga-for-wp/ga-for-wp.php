@@ -5,9 +5,9 @@ Plugin Name: Google Analytics WordPress Plugin by GA4WP
 Plugin URI: https://ga4wp.com/
 Description: Google Analytics WordPress Plugin by GA4WP is lightweight, easy to connect and comes with plenty of great features.
 Author: Passionate Brains
-Version: 2.7.0
+Version: 2.8.0
 WC requires at least: 3.7.0
-WC tested up to: 9.3.3
+WC tested up to: 9.8.1
 Author URI: https://ga4wp.com/
 License: GPLv2 or later
 */
@@ -73,7 +73,7 @@ if ( function_exists( 'gfw_fs' ) ) {
         define( 'GA4WP_PREFIX', 'GA4WP_' );
     }
     if ( !defined( 'GA4WP_VERSION' ) ) {
-        define( 'GA4WP_VERSION', '2.7.0' );
+        define( 'GA4WP_VERSION', '2.8.0' );
     }
     add_action( 'before_woocommerce_init', function () {
         if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
