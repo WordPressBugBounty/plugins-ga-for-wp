@@ -7,7 +7,7 @@ Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 2.9.0
+Stable tag: 2.9.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Google Analytics Dashboard for WordPress Plugin by GA4WP is Lightweight, Easy to connect and comes with plenty of great features.This plugin also adds Facebook Pixel and Google Ads conversion tracking for your WordPress website.
@@ -98,8 +98,11 @@ Please send you suggestion from Plugin website or write down in our plugin forum
 
 == Changelog ==
 
+= 2.9.1 =
+* Resolving CSS Issue
+
 = 2.9.0 =
-Latest Freemius SDK Update
+* Latest Freemius SDK Update
 
 = 2.8.0 =
 * Tested with latest v6.8 of WP
