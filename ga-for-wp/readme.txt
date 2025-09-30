@@ -1,19 +1,19 @@
 === GA4WP ===
 Contributors: passionatebrains, freemius
 Plugin Name: GA4WP
-Tags: wordpress analytics, google analytics, analytics dashboard, statistics, analytics
+Tags: Google Analytics, Google Analytics Dashboard, WooCommerce
 Author URI: https://ga4wp.com
 Author: passionatebrains
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.0
-Stable tag: 2.9.1
+Stable tag: 2.10.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Google Analytics Dashboard for WordPress Plugin by GA4WP is Lightweight, Easy to connect and comes with plenty of great features.This plugin also adds Facebook Pixel and Google Ads conversion tracking for your WordPress website.
 
 == Description ==
-= Simple Google Analytics Integration plugin for WordPress (GA4 compatible) =
+= Simple Google Analytics Integration plugin for WordPress =
 
 With advanced ways and technology to track important data associated with your WordPress website, We can bring you most reliable data by connecting Google Analytics with your website.
 > Connects Google Analytics to WordPress
@@ -50,7 +50,7 @@ This plugin adds Google Analytics, Facebook Pixel, Google Ads Conversion Trackin
 * Priority Support
 * Regular future updates and new features
 
-Unlock more advanced tracking for your WordPress website? Give a try to <a href="https://ga4wp.com/" rel="follow">GA4WP: Google Analytics Integration plugin for WordPress (pro version).</a>
+Unlock more advanced tracking for your WordPress website? Give a try to <a href="https://ga4wp.com/" rel="follow">GA4WP: Google Analytics for WordPress pro version.</a>
 
 == Installation ==
 
@@ -98,15 +98,19 @@ Please send you suggestion from Plugin website or write down in our plugin forum
 
 == Changelog ==
 
-= 2.9.1 =
-* Resolving CSS Issue
+= 2.10.0 =
+Latest Freemius SDK Update
+Updated some minor changes
 
+= 2.9.1 =
+Fixing the css issue
+ 
 = 2.9.0 =
-* Latest Freemius SDK Update
+Latest Freemius SDK Update
 
 = 2.8.0 =
-* Tested with latest v6.8 of WP
-* Updated some minor changes
+Tested with latest v6.8 of WP
+Updated some minor changes
 
 = 2.7.0 =
 Latest Freemius SDK Update
