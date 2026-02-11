@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: GA4WP 
+Plugin Name: GA4WP - Analytics Dashboard for the Website 
 Plugin URI: https://ga4wp.com/
 Description: Google Analytics Dashboard for WordPress Plugin by GA4WP is lightweight, easy to connect and comes with plenty of great features.
 Author: Passionate Brains

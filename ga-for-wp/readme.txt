@@ -1,11 +1,11 @@
-=== GA4WP ===
+=== GA4WP - Analytics Dashboard for the Website ===
 Contributors: passionatebrains, freemius
-Plugin Name: GA4WP
-Tags: Google Analytics, Google Analytics Dashboard, WooCommerce
+Plugin Name: GA4WP - Analytics Dashboard for the Website
+Tags: Google Analytics, Google Analytics Dashboard, WooCommerce, website analytics, WordPress analytics
 Author URI: https://ga4wp.com
 Author: passionatebrains
 Requires at least: 5.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.0
 Stable tag: 2.10.0
 License: GPLv3
