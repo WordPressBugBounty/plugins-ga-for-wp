@@ -1,15 +1,19 @@
 <?php
 
 /*
-Plugin Name: GA4WP - Analytics Dashboard for the Website 
-Plugin URI: https://ga4wp.com/
-Description: Google Analytics Dashboard for WordPress Plugin by GA4WP is lightweight, easy to connect and comes with plenty of great features.
+Plugin Name: TrueAna - True Analytics Dashboard
+Plugin URI: https://trueana.com/
+Description: Connect Google Analytics to WordPress in few clicks. Track all important WooCommerce and WordPress events with a real GA4 dashboard built into wp-admin.
 Author: Passionate Brains
-Version: 2.10.0
+Version: 3.0.0
+Requires at least: 5.7
+Requires PHP: 7.4
 WC requires at least: 3.7.0
-WC tested up to: 10.2.2
-Author URI: https://ga4wp.com/
+WC tested up to: 10.9.4
+Author URI: https://trueana.com/
 License: GPLv2 or later
+Text Domain: ga-for-wp-text
+Domain Path: /languages
 */
 /* initiating plugin */
 if (!defined('ABSPATH')) {
@@ -26,24 +30,24 @@ if (function_exists('gfw_fs')) {
                 // Include Freemius SDK.
                 require_once dirname(__FILE__) . '/vendor/freemius/start.php';
                 $gfw_fs = fs_dynamic_init(array(
-                    'id'             => '7658',
-                    'slug'           => 'ga-for-wp',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_09b4dbf1e09214afa3b86d9150d8a',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'pro',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'trial'          => array(
-                        'days'               => 3,
-                        'is_require_payment' => false,
+                    'id'               => '7658',
+                    'slug'             => 'ga-for-wp',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_09b4dbf1e09214afa3b86d9150d8a',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'pro',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'trial'            => array(
+                        'days'               => 7,
+                        'is_require_payment' => true,
                     ),
-                    'menu'           => array(
+                    'menu'             => array(
                         'slug'       => 'ga4wp_pro_plugin_options',
                         'first-path' => 'admin.php?page=ga4wp_pro_plugin_options',
-                        'support'    => false,
+                        'support'    => true,
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
                     'is_org_compliant' => true,
                 ));
             }
@@ -75,7 +79,7 @@ if (function_exists('gfw_fs')) {
         define('GA4WP_PREFIX', 'GA4WP_');
     }
     if (!defined('GA4WP_VERSION')) {
-        define('GA4WP_VERSION', '2.10.0');
+        define('GA4WP_VERSION', '3.0.0');
     }
     add_action('before_woocommerce_init', function () {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {
@@ -116,13 +120,13 @@ if (function_exists('gfw_fs')) {
             private function includes()
             {
                 /* Settings class. */
-                require_once GA4WP_DIR . 'main/class-ga4wp-settings.php';
                 /* Include core class. */
                 require_once GA4WP_DIR . 'main/class-ga4wp-main.php';
                 /* Include admin class. */
                 require_once GA4WP_DIR . 'main/class-ga4wp-admin.php';
                 /* Include auth class. */
                 require_once GA4WP_DIR . 'main/class-ga4wp-auth.php';
+                require_once GA4WP_DIR . 'main/class-ga4wp-settings.php';
             }
 
             /* init support classes*/
@@ -166,12 +170,12 @@ if (function_exists('gfw_fs')) {
                 $nwpv = implode('.', array_slice(explode('.', $wp_version), 0, 2));
                 #getiing wp version upto 2 decimal points
                 # php version requirements
-                if (version_compare(PHP_VERSION, '7.0', '<')) {
-                    $error = 'GA4WP: Google Analytics for Wordpress requires PHP 7.0 or higher. You’re still on ' . PHP_VERSION;
+                if (version_compare(PHP_VERSION, '7.4', '<')) {
+                    $error = 'GA4WP: Google Analytics for Wordpress requires PHP 7.4 or higher. You’re still on ' . PHP_VERSION;
                 }
                 # wp version requirements
-                if ($nwpv < '5.0') {
-                    $error = 'GA4WP: Google Analytics for Wordpress requires WP 5.0 or higher. You’re still on ' . $wp_version;
+                if ($nwpv < '5.7') {
+                    $error = 'GA4WP: Google Analytics for Wordpress requires WP 5.7 or higher. You’re still on ' . $wp_version;
                 }
                 if (is_plugin_active(plugin_basename(__FILE__)) && !empty($error) || !empty($error)) {
                     if (isset($_GET['activate'])) {
@@ -188,4 +192,7 @@ if (function_exists('gfw_fs')) {
         }
     }
     add_action('plugins_loaded', array('GA4WP', 'get_instance'));
+    register_deactivation_hook(__FILE__, function () {
+        wp_clear_scheduled_hook('ga4wp_cleanup_stale_events');
+    });
 }

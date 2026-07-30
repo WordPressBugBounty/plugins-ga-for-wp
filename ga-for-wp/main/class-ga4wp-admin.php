@@ -7,8 +7,14 @@ if (!defined('ABSPATH')) {
  * Declaring Class
  */
 class GA4WP_Admin
-{   
+{
 	public $pages;
+
+	/**
+	 * Wire up the admin integration: load the view classes and register
+	 * the WordPress hooks that add the plugin's menu page, enqueue its
+	 * scripts/styles, and add the "Settings" link on the Plugins page.
+	 */
 	public function __construct()
 	{
 		/* ading admin view class */
@@ -17,177 +23,114 @@ class GA4WP_Admin
 		add_action('admin_enqueue_scripts', array($this, 'ga4wp_enqueue_scripts'));
 		/* adding plugin link in wp-menu */
 		add_action('admin_menu', array($this, 'add_menu_pages'));
-		/* add Review Request */
-		add_action('admin_notices', array($this, 'add_review_request'));
-		/* hide review request using ajax */
-		add_action('wp_ajax_ga4wp_hide_review_notice', array($this, 'hide_review_request'));
-		add_action('wp_ajax_nopriv_ga4wp_hide_review_notice', array($this, 'hide_review_request'));
 		/* adding links to plugin on pluings page*/
 		add_filter('plugin_action_links_' . GA4WP_BASENAME, array($this, 'settings_link'));
-		add_action('wp_footer', array($this, 'ga4wp_add_this_script_footer'));
-		add_action('admin_footer', array($this, 'ga4wp_add_this_script_footer'));
 	}
 
-	/* add review request in plugin */
-	public function add_review_request()
-	{
-		$review_request_time = get_option('ga4wp_review_request_time');
-		if ($review_request_time) {
-			$current_time = time();
-			if ($current_time > $review_request_time) {
-				echo '<div class="notice notice-success is-dismissible">
-				<p>
-					<img style="float:left;margin-right:27px;width: 50px;padding: 0.25em;" src="' . GA4WP_URL . 'assests/images/GA4WP.png">
-					<strong>
-						' . __('Hi there! You\'ve been using GA4WP: Google Analytics for Wordpress Plugin. We hope it\'s been helpful. Would you mind rating it 5-stars to help spread the word?', 'ga-for-wp-text') . '
-					</strong>	
-				</p>
-				<p>
-					<a class="button button-primary" target="_blank" href="https://wordpress.org/support/plugin/ga-for-wp/reviews/?rate=5#rate-response>" data-reason="am_now">
-						<strong>' . __('Ok, you deserve it', 'ga-for-wp-text') . '</strong>
-					</a>
-					<a class="button-secondary ga4wp-dismiss-maybelater" data-reason="maybe_later">
-						' . __('Nope, maybe later', 'g4-for-wp-text') . '
-					</a>
-					<a class="button-secondary ga4wp-dismiss-alreadydid" data-reason="already_did">
-						' . __('I already did', 'ga4-wp-for-text') . '
-					</a>
-				</p>
-			</div>';
-			}
-		} else {
-			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 48 hours"));
-		}
-	}
-
-	/* hide review request */
-	public function hide_review_request()
-	{
-		$nonce = $_REQUEST['security'];
-		if (wp_verify_nonce($nonce, 'maybelater-nonce')) {
-			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 48 hours"));
-		}
-		if (wp_verify_nonce($nonce, 'alreadydid-nonce')) {
-			update_option('ga4wp_review_request_time', strtotime(date('d-m-Y H:i:s') . "+ 720 hours"));
-		}
-	}
-	/* adding analytics code to front for triggering events */
-	public function ga4wp_add_this_script_footer()
-	{
-		$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-		$url = $protocol . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-		$url = strtok($url, '?');
-		if (isset($_SERVER['HTTP_REFERER'])) {
-			$old_url = $_SERVER['HTTP_REFERER'];
-		} else {
-			$old_url = '';
-		}
-		if (is_user_logged_in()) {
-			$user_id = get_current_user_id();
-			$transient_id = 'ga4wp_analytics_code_' . $user_id;
-			$user_cid = $this->get_cid();
-			$transient_id_2 = 'ga4wp_analytics_code_' . $user_cid;
-			$ana_code_2 = get_transient($transient_id_2);
-		} else {
-			$user_cid = $this->get_cid();
-			$transient_id = 'ga4wp_analytics_code_' . $user_cid;
-		}
-		$ana_code = get_transient($transient_id);
-		if (!empty($ana_code_2)) {
-			$ana_code .= $ana_code_2;
-		}
-		if (!empty($ana_code)) {
-			if (class_exists('WooCommerce')) {
-				if (is_cart() || is_checkout()) {
-					if ($url !== $old_url) {
-						echo "<script>" . $ana_code . "</script>";
-						delete_transient($transient_id);
-						if (isset($transient_id_2)) {
-							delete_transient($transient_id_2);
-						}
-					}
-				} else {
-					echo "<script>" . $ana_code . "</script>";
-					delete_transient($transient_id);
-					if (isset($transient_id_2)) {
-						delete_transient($transient_id_2);
-					}
-				}
-			} else {
-				echo "<script>" . $ana_code . "</script>";
-				delete_transient($transient_id);
-				if (isset($transient_id_2)) {
-					delete_transient($transient_id_2);
-				}
-			}
-		}
-	}
-
-	/* getting cid for event api calls */
-	private function get_cid($generate_cid = false)
-	{
-		$cid = '';
-		/* get client identity via GA cookie and only accepting value if it validated */
-		if (isset($_COOKIE['_ga'])) {
-			$ga_cookie_data = filter_var($_COOKIE['_ga'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-			$data = explode('.', $ga_cookie_data);
-			if (is_array($data) && count($data) > 3) {
-				if (strlen($data[2]) > 3 && strlen($data[3]) > 3) {
-					$cid = $data[2] . '.' . $data[3];
-				}
-			}
-		}
-		/* generate custom cid if cookie is not set */
-		if (empty($cid)) {
-			$custom_cid = $generate_cid || (empty($cid) && is_user_logged_in());
-			if ($custom_cid) {
-				$bytes = random_bytes(16);
-				$bytes[6] = chr(ord($bytes[6]) & 0x0f | 0x40); // set version to 0100
-				$bytes[8] = chr(ord($bytes[8]) & 0x3f | 0x80); // set bits 6-7 to 10
-				return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($bytes), 4));
-			}
-		} else {
-			return $cid;
-		}
-	}
-
-	/* Adding plugin menu to Admin menu of WP */
+	/**
+	 * Register the plugin's admin menu page.
+	 *
+	 * Hooked into `admin_menu`. Instantiates GA4WP_Admin_View, which adds
+	 * the actual WP admin menu entry, and stores it on $this->pages so it
+	 * can be referenced elsewhere.
+	 */
 	public function add_menu_pages()
 	{
-		$title = __('GA4WP', 'ga-for-wp-text');
+		$title = __('TrueAna', 'ga-for-wp-text');
 		$this->pages['ga4wp'] = new GA4WP_Admin_View($title, 'ga4wp_pro_plugin_options');
 	}
 
-	/*  enqueue scripts */
+	/**
+	 * Enqueue the plugin's admin scripts and styles.
+	 *
+	 * Hooked into `admin_enqueue_scripts`. Registers all plugin assets,
+	 * then conditionally enqueues the Materialize UI assets on the
+	 * plugin's own settings page, the charting/export assets on the
+	 * settings page and the WP dashboard screen, and the Freemius UI
+	 * override styles/fonts on every admin page (and any ga-for-wp-*
+	 * Freemius sub-page). The AJAX helper script is always enqueued.
+	 */
 	public function ga4wp_enqueue_scripts()
-	{   
+	{
 		$screen = get_current_screen();
 		$this->register_scripts();
 		if (isset($_GET['page']) && ($_GET['page'] == 'ga4wp_pro_plugin_options')) {
 			wp_enqueue_script('ga4wp_material_js');
 			wp_enqueue_style('ga4wp_material_css');
 		}
-		if ((isset($_GET['page']) && ($_GET['page'] == 'ga4wp_pro_plugin_options'))||($screen -> id == "dashboard")) {
+		if ((isset($_GET['page']) && ($_GET['page'] == 'ga4wp_pro_plugin_options')) || ($screen->id == "dashboard")) {
+			wp_enqueue_style('ga4wp_fonts');
 			wp_enqueue_style('ga4wp_icons');
 			wp_enqueue_style('ga4wp_css');
 			wp_enqueue_script('ga4wp_chart_js');
+			wp_enqueue_script('ga4wp_export_js');
 		}
 		wp_enqueue_script('ga4wp_ajax_js');
+
+		// Freemius UI overrides: always load on admin (notices appear everywhere);
+		// fonts are pulled in as a dependency so they load on Freemius sub-pages too.
+		wp_enqueue_style('ga4wp_freemius_css');
+
+		// Also enqueue fonts+icons on any ga-for-wp-* Freemius sub-page
+		// (account, contact, pricing) so Sora is available there.
+		$current_page = isset($_GET['page']) ? sanitize_key($_GET['page']) : '';
+		if (strpos($current_page, 'ga-for-wp') !== false) {
+			wp_enqueue_style('ga4wp_fonts');
+			wp_enqueue_style('ga4wp_icons');
+		}
 	}
 
-	/* registering scripts */
+	/**
+	 * Register (but do not enqueue) all styles and scripts used by the plugin's admin UI.
+	 *
+	 * Cache-busts locally vendored assets using each file's mtime (falling
+	 * back to GA4WP_VERSION if the file can't be found) so browsers/CDNs
+	 * pick up changes without needing a manual version bump. Registers
+	 * fonts, icons, Materialize, the plugin's own CSS, Freemius UI
+	 * override CSS, Chart.js, and the jsPDF/autoTable + export script
+	 * bundle used for exporting charts.
+	 */
 	private function register_scripts()
 	{
-		wp_register_style('ga4wp_material_css', GA4WP_URL . 'assests/css/materialize.min.css', false, null);
-		wp_register_style('ga4wp_css', GA4WP_URL . 'assests/css/ga4wp.css', false, null);
-		wp_register_style('ga4wp_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
-		wp_register_script('ga4wp_material_js', GA4WP_URL . 'assests/js/materialize.min.js', array('jquery'), null, true);
-		wp_register_script('ga4wp_chart_js', GA4WP_URL . 'assests/js/chart.js', null, true);
-		wp_register_script('ga4wp_ajax_js', GA4WP_URL . 'assests/js/ga4wp-ajax.js', array('jquery'), null, true);
-		wp_localize_script('ga4wp_ajax_js', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php'), 'maybelater_nonce' => wp_create_nonce('maybelater-nonce'), 'alreadydid_nonce' => wp_create_nonce('alreadydid-nonce'), ));
+		// Cache-bust plugin-owned local files off their own mtime, not a hand-maintained
+		// version string — otherwise a forgotten version bump means browsers/CDNs keep
+		// serving a stale cached copy after the file on disk has already changed.
+		$asset_ver = function ($rel_path) {
+			$file = GA4WP_DIR . $rel_path;
+			return file_exists($file) ? (string) filemtime($file) : GA4WP_VERSION;
+		};
+
+		// Modern fonts — vendored locally (vendor/google-fonts, vendor/material-icons) so the
+		// admin UI doesn't depend on fonts.googleapis.com/fonts.gstatic.com being reachable.
+		wp_register_style('ga4wp_fonts', GA4WP_URL . 'vendor/google-fonts/fonts.css', false, $asset_ver('vendor/google-fonts/fonts.css'));
+		wp_register_style('ga4wp_icons', GA4WP_URL . 'vendor/material-icons/icons.css', false, $asset_ver('vendor/material-icons/icons.css'));
+		// Materialize (keep for existing functionality) — vendored locally
+		wp_register_style('ga4wp_material_css', GA4WP_URL . 'vendor/materialize/materialize.min.css', false, $asset_ver('vendor/materialize/materialize.min.css'));
+		// Modern plugin CSS — loads after Materialize so it wins on specificity
+		wp_register_style('ga4wp_css', GA4WP_URL . 'assests/css/ga4wp.css', array('ga4wp_material_css', 'ga4wp_fonts', 'ga4wp_icons'), $asset_ver('assests/css/ga4wp.css'));
+		// Freemius UI overrides — enqueued on all admin pages (covers notices) + fonts on ga-for-wp pages
+		wp_register_style('ga4wp_freemius_css', GA4WP_URL . 'assests/css/ga4wp-freemius.css', ['ga4wp_fonts'], $asset_ver('assests/css/ga4wp-freemius.css'));
+		wp_register_script('ga4wp_material_js', GA4WP_URL . 'vendor/materialize/materialize.min.js', array('jquery'), $asset_ver('vendor/materialize/materialize.min.js'), true);
+		// Chart.js 4 — vendored locally (vendor/chartjs)
+		wp_register_script('ga4wp_chart_js', GA4WP_URL . 'vendor/chartjs/chart.umd.js', array(), $asset_ver('vendor/chartjs/chart.umd.js'), false);
+		// jsPDF + autoTable for PDF export — vendored locally (vendor/jspdf, vendor/jspdf-autotable)
+		wp_register_script('ga4wp_jspdf', GA4WP_URL . 'vendor/jspdf/jspdf.umd.min.js', [], $asset_ver('vendor/jspdf/jspdf.umd.min.js'), true);
+		wp_register_script('ga4wp_jspdf_autotable', GA4WP_URL . 'vendor/jspdf-autotable/jspdf.plugin.autotable.min.js', ['ga4wp_jspdf'], $asset_ver('vendor/jspdf-autotable/jspdf.plugin.autotable.min.js'), true);
+		wp_register_script('ga4wp_export_js', GA4WP_URL . 'assests/js/ga4wp-export.js', ['ga4wp_chart_js', 'ga4wp_jspdf_autotable'], $asset_ver('assests/js/ga4wp-export.js'), true);
 	}
 
-	/* Adding Settings link on plugins page */
+	/**
+	 * Build/add the plugin's "Settings" link on the WP Plugins list page.
+	 *
+	 * Hooked into `plugin_action_links_{GA4WP_BASENAME}` as the default
+	 * usage (returns $links with the settings link prepended), but can
+	 * also be called directly to just resolve the settings page URL.
+	 *
+	 * @param array $links       Existing plugin action links.
+	 * @param bool  $url_only    When true, return only the settings page URL instead of the links array.
+	 * @param bool  $networkwide When true (with $url_only and multisite), force the network admin settings URL.
+	 * @return array|string The links array with the settings link added, or the settings URL string when $url_only is true.
+	 */
 	public function settings_link($links, $url_only = false, $networkwide = false)
 	{
 		$settings_page = is_multisite() && is_network_admin() ? network_admin_url('admin.php?page=ga4wp_pro_plugin_options') : menu_page_url('ga4wp_pro_plugin_options', false);
@@ -206,7 +149,9 @@ class GA4WP_Admin
 		return $links;
 	}
 
-	/* Adding tab views to plugin */
+	/**
+	 * Load the class files needed for the plugin's tabbed admin view system.
+	 */
 	private function includes()
 	{
 		/* main view class */

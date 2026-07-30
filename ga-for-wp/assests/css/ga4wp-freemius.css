@@ -1,0 +1,1093 @@
+﻿/**
+ * GA4WP — Freemius UI overrides
+ * Applies the plugin's design system (Sora font, brand tokens) to all
+ * Freemius-managed pages: connect/opt-in, account, contact, admin notices.
+ * Never modify Freemius SDK files directly — they are overwritten on update.
+ */
+
+/* ─── Design tokens (mirror ga4wp.css) ─────────────────────────── */
+:root {
+  --fs-ga-brand:    #2563EB;
+  --fs-ga-brand-dk: #1D4ED8;
+  --fs-ga-teal:     #0EA5A0;
+  --fs-ga-surface:  #FFFFFF;
+  --fs-ga-bg:       #F4F6FA;
+  --fs-ga-surface2: #F8F9FC;
+  --fs-ga-border:   #E4E8F2;
+  --fs-ga-text1:    #0F172A;
+  --fs-ga-text2:    #475569;
+  --fs-ga-text3:    #94A3B8;
+  --fs-ga-ok:       #059669;
+  --fs-ga-err:      #E11D48;
+  --fs-ga-font:     'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fs-ga-radius:   12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONNECT / OPT-IN PAGE  (#fs_connect)
+═══════════════════════════════════════════════════════════════════ */
+
+#fs_connect {
+  font-family: var(--fs-ga-font);
+  margin: 48px auto 32px;
+  max-width: 520px;
+  width: 520px;
+}
+
+#fs_connect * {
+  font-family: var(--fs-ga-font);
+}
+
+/* Card shell */
+#fs_connect .fs-box-container {
+  background: var(--fs-ga-surface);
+  border: 1px solid var(--fs-ga-border);
+  border-radius: var(--fs-ga-radius);
+  box-shadow: 0 4px 32px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  padding-top: 52px;
+}
+
+/* Content area */
+#fs_connect .fs-content {
+  background: var(--fs-ga-surface);
+  padding: 28px 36px 20px;
+}
+
+#fs_connect .fs-content h2 {
+  color: var(--fs-ga-text1);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+#fs_connect .fs-content p {
+  color: var(--fs-ga-text2);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0;
+}
+
+#fs_connect .fs-content a:not(.button) {
+  color: var(--fs-ga-brand);
+  text-decoration: none;
+}
+#fs_connect .fs-content a:not(.button):hover {
+  text-decoration: underline;
+}
+
+/* Error state */
+#fs_connect .fs-content .fs-error {
+  background: #FFF1F4;
+  border: 1px solid #FECDD3;
+  border-radius: 8px;
+  color: var(--fs-ga-err);
+  font-size: 13px;
+  margin-bottom: 14px;
+  padding: 8px 12px;
+}
+
+/* Plugin icon: rounded corners instead of circle */
+#fs_connect .fs-header .fs-plugin-icon {
+  border-radius: 14px;
+}
+
+/* ── Action bar ─── */
+#fs_connect .fs-actions {
+  background: var(--fs-ga-surface2);
+  border-top: 1px solid var(--fs-ga-border);
+  border-bottom: none;
+  padding: 16px 36px;
+}
+
+#fs_connect .fs-actions .button {
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 13px;
+  font-weight: 600;
+  height: auto;
+  line-height: 1;
+  padding: 9px 18px;
+  transition: background .15s, border-color .15s, box-shadow .15s;
+}
+
+#fs_connect .fs-actions .button.button-primary {
+  background: var(--fs-ga-brand);
+  border-color: var(--fs-ga-brand);
+  box-shadow: 0 1px 6px rgba(37,99,235,.28);
+  color: #fff;
+  padding: 10px 28px;
+}
+#fs_connect .fs-actions .button.button-primary:hover,
+#fs_connect .fs-actions .button.button-primary:focus {
+  background: var(--fs-ga-brand-dk);
+  border-color: var(--fs-ga-brand-dk);
+  box-shadow: 0 2px 10px rgba(37,99,235,.35);
+  color: #fff;
+}
+#fs_connect .fs-actions .button.button-primary:after {
+  content: " →";
+}
+#fs_connect .fs-actions .button.button-primary.fs-loading:after {
+  content: "";
+}
+
+#fs_connect .fs-actions .button.button-secondary {
+  background: var(--fs-ga-surface);
+  border: 1px solid var(--fs-ga-border);
+  color: var(--fs-ga-text2);
+}
+#fs_connect .fs-actions .button.button-secondary:hover {
+  background: var(--fs-ga-bg);
+  border-color: var(--fs-ga-border);
+  color: var(--fs-ga-text1);
+}
+
+/* ── Permissions accordion ─── */
+#fs_connect .fs-permissions {
+  background: var(--fs-ga-surface);
+  border-top: 1px solid var(--fs-ga-border);
+  padding: 10px 36px;
+}
+
+#fs_connect .fs-permissions > .fs-trigger {
+  color: var(--fs-ga-brand);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#fs_connect .fs-permissions.fs-open {
+  background: var(--fs-ga-bg);
+}
+
+#fs_connect .fs-permissions ul li {
+  border-bottom: 1px solid var(--fs-ga-border);
+}
+#fs_connect .fs-permissions ul li:last-child {
+  border-bottom: none;
+}
+#fs_connect .fs-permissions ul li .fs-permission-description span {
+  color: var(--fs-ga-text1);
+  font-size: 13px;
+}
+#fs_connect .fs-permissions ul li .fs-permission-description p {
+  color: var(--fs-ga-text2);
+  font-size: 12px;
+}
+
+/* ── Terms / footer ─── */
+#fs_connect .fs-terms,
+#fs_connect .fs-terms a {
+  color: var(--fs-ga-text3);
+  font-size: 11.5px;
+  text-decoration: none;
+}
+
+/* License key field */
+#fs_connect .fs-license-key-container input {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 8px 10px;
+}
+#fs_connect .fs-license-key-container input:focus {
+  border-color: var(--fs-ga-brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+  outline: none;
+}
+
+/* Marketing opt-in box */
+#fs_marketing_optin {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 12px 16px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FULL-SIZE FREEMIUS PAGES (account, contact, support, add-ons)
+   Freemius wraps these in .fs-full-size-wrapper
+═══════════════════════════════════════════════════════════════════ */
+
+.fs-full-size-wrapper,
+.fs-full-size-wrapper * {
+  font-family: var(--fs-ga-font) !important;
+}
+
+/* Page heading */
+.wrap.fs-section h1,
+.wrap.fs-section h2,
+.fs-full-size-wrapper h1,
+.fs-full-size-wrapper h2 {
+  color: var(--fs-ga-text1);
+  font-weight: 700;
+}
+
+/* Nav tabs */
+.fs-full-size-wrapper .nav-tab-wrapper {
+  border-bottom-color: var(--fs-ga-border);
+}
+.fs-full-size-wrapper .nav-tab {
+  border-radius: 8px 8px 0 0;
+  color: var(--fs-ga-text2);
+  font-size: 13px;
+  font-weight: 500;
+}
+.fs-full-size-wrapper .nav-tab-active,
+.fs-full-size-wrapper .nav-tab:focus,
+.fs-full-size-wrapper .nav-tab:hover {
+  border-bottom-color: var(--fs-ga-brand);
+  color: var(--fs-ga-brand);
+}
+
+/* Tables / cards inside account page */
+.fs-full-size-wrapper table.widefat,
+.fs-full-size-wrapper .postbox,
+.fs-full-size-wrapper .stuffbox {
+  border: 1px solid var(--fs-ga-border) !important;
+  border-radius: var(--fs-ga-radius) !important;
+  box-shadow: none !important;
+}
+
+.fs-full-size-wrapper table.widefat th {
+  background: var(--fs-ga-surface2);
+  color: var(--fs-ga-text2);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.fs-full-size-wrapper table.widefat td {
+  border-top: 1px solid var(--fs-ga-border);
+  color: var(--fs-ga-text1);
+  font-size: 13px;
+  padding: 10px 12px;
+}
+
+/* Buttons inside full-size pages */
+.fs-full-size-wrapper .button,
+.fs-full-size-wrapper input[type="submit"],
+.fs-full-size-wrapper input[type="button"] {
+  border-radius: 8px;
+  font-family: var(--fs-ga-font) !important;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  height: auto;
+}
+
+.fs-full-size-wrapper .button-primary,
+.fs-full-size-wrapper input[type="submit"].button-primary {
+  background: var(--fs-ga-brand) !important;
+  border-color: var(--fs-ga-brand) !important;
+  box-shadow: 0 1px 6px rgba(37,99,235,.25) !important;
+  color: #fff !important;
+}
+.fs-full-size-wrapper .button-primary:hover,
+.fs-full-size-wrapper input[type="submit"].button-primary:hover {
+  background: var(--fs-ga-brand-dk) !important;
+  border-color: var(--fs-ga-brand-dk) !important;
+}
+
+/* Form labels and inputs */
+.fs-full-size-wrapper label {
+  color: var(--fs-ga-text2);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.fs-full-size-wrapper input[type="text"],
+.fs-full-size-wrapper input[type="email"],
+.fs-full-size-wrapper textarea,
+.fs-full-size-wrapper select {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+  font-family: var(--fs-ga-font) !important;
+  font-size: 13px;
+  padding: 8px 12px;
+}
+.fs-full-size-wrapper input[type="text"]:focus,
+.fs-full-size-wrapper input[type="email"]:focus,
+.fs-full-size-wrapper textarea:focus {
+  border-color: var(--fs-ga-brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+  outline: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ADMIN NOTICES  (.fs-notice)
+   These appear on all WP admin pages, not just Freemius pages.
+═══════════════════════════════════════════════════════════════════ */
+
+.fs-notice {
+  border-radius: 0 8px 8px 0;
+  font-family: var(--fs-ga-font);
+}
+
+.fs-notice label.fs-plugin-title {
+  background: var(--fs-ga-brand);
+  border-radius: 0 0 6px 6px;
+  font-family: var(--fs-ga-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.fs-notice.success label.fs-plugin-title {
+  background: var(--fs-ga-ok);
+}
+
+.fs-notice.error label.fs-plugin-title {
+  background: var(--fs-ga-err);
+}
+
+.fs-notice.promotion {
+  background-color: #EFF6FF !important;
+  border-left-color: var(--fs-ga-brand) !important;
+}
+
+.fs-notice .fs-close {
+  color: var(--fs-ga-text3);
+}
+.fs-notice .fs-close:hover {
+  color: var(--fs-ga-text2);
+}
+
+/* Inline notice buttons */
+.fs-notice .button {
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 12px;
+  font-weight: 600;
+  height: auto;
+  padding: 6px 14px;
+}
+.fs-notice .button-primary {
+  background: var(--fs-ga-brand);
+  border-color: var(--fs-ga-brand);
+  color: #fff;
+}
+.fs-notice .button-primary:hover {
+  background: var(--fs-ga-brand-dk);
+  border-color: var(--fs-ga-brand-dk);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SECURE NOTICE (bottom-left floating bar)
+═══════════════════════════════════════════════════════════════════ */
+
+.fs-secure-notice {
+  background: #ECFDF5;
+  box-shadow: 0 2px 8px rgba(5,150,105,.2);
+  color: var(--fs-ga-ok);
+  font-family: var(--fs-ga-font);
+  font-size: 12.5px;
+}
+.fs-secure-notice a.fs-security-proof {
+  color: var(--fs-ga-ok);
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ADMIN MENU — upgrade / trial badge
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Plugin menu icon alignment ── */
+#adminmenu #toplevel_page_ga4wp_pro_plugin_options .wp-menu-image {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+#adminmenu #toplevel_page_ga4wp_pro_plugin_options .wp-menu-image img {
+  width: 16px !important;
+  height: 16px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+#adminmenu .update-plugins.fs-trial {
+  background-color: var(--fs-ga-brand) !important;
+}
+
+#adminmenu .fs-submenu-item.pricing.upgrade-mode {
+  color: var(--fs-ga-brand) !important;
+  font-weight: 700;
+}
+
+#adminmenu .fs-submenu-item.pricing.trial-mode {
+  color: var(--fs-ga-teal) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TOOLTIPS
+═══════════════════════════════════════════════════════════════════ */
+
+.fs-tooltip-trigger .fs-tooltip {
+  background: var(--fs-ga-text1);
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DIALOG / MODAL
+═══════════════════════════════════════════════════════════════════ */
+
+.fs-modal .modal-header,
+.fs-dialog .modal-header {
+  background: var(--fs-ga-surface2);
+  border-bottom: 1px solid var(--fs-ga-border);
+  font-family: var(--fs-ga-font);
+  font-weight: 700;
+}
+
+.fs-modal .modal-body,
+.fs-dialog .modal-body {
+  font-family: var(--fs-ga-font);
+  font-size: 13.5px;
+}
+
+.fs-modal .button,
+.fs-dialog .button {
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-weight: 600;
+}
+
+.fs-modal .button-primary,
+.fs-dialog .button-primary {
+  background: var(--fs-ga-brand);
+  border-color: var(--fs-ga-brand);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PLUGINS LIST PAGE  (.plugins table Freemius upgrade notice)
+═══════════════════════════════════════════════════════════════════ */
+
+.plugins p.fs-upgrade-notice {
+  background: var(--fs-ga-brand);
+  border-radius: 0 0 6px 6px;
+  border: none;
+  color: #fff;
+  font-family: var(--fs-ga-font);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 6px;
+  padding: 8px 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 540px) {
+  #fs_connect {
+    margin: 20px 0 0 -10px;
+    width: auto;
+  }
+  #fs_connect .fs-box-container {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #fs_connect .fs-content,
+  #fs_connect .fs-actions,
+  #fs_connect .fs-permissions {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCOUNT PAGE  (#fs_account)
+   URL: ?page=ga-for-wp-account
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Page wrapper ─── */
+#fs_account {
+  font-family: var(--fs-ga-font);
+}
+#fs_account * {
+  font-family: var(--fs-ga-font);
+}
+
+/* ── Nav tabs (Account / Add-ons / Upgrade / Free Trial) ─── */
+.wrap.fs-section .nav-tab-wrapper {
+  border-bottom: 2px solid var(--fs-ga-border);
+  margin-bottom: 20px;
+}
+.wrap.fs-section .nav-tab-wrapper .nav-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  color: var(--fs-ga-text2);
+  font-family: var(--fs-ga-font);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: -2px;
+  padding: 10px 16px;
+  transition: color .15s, border-color .15s;
+}
+.wrap.fs-section .nav-tab-wrapper .nav-tab:hover {
+  background: transparent;
+  border-bottom-color: var(--fs-ga-border);
+  color: var(--fs-ga-text1);
+}
+.wrap.fs-section .nav-tab-wrapper .nav-tab-active,
+.wrap.fs-section .nav-tab-wrapper .nav-tab-active:hover {
+  background: transparent;
+  border-bottom-color: var(--fs-ga-brand);
+  color: var(--fs-ga-brand);
+  font-weight: 600;
+}
+
+/* ── postbox cards ─── */
+#fs_account .postbox,
+#poststuff .postbox {
+  background: var(--fs-ga-surface);
+  border: 1px solid var(--fs-ga-border) !important;
+  border-radius: var(--fs-ga-radius) !important;
+  box-shadow: none !important;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+/* Card heading */
+#fs_account h3,
+#poststuff .postbox h3 {
+  background: var(--fs-ga-surface2);
+  border-bottom: 1px solid var(--fs-ga-border);
+  border-radius: var(--fs-ga-radius) var(--fs-ga-radius) 0 0;
+  color: var(--fs-ga-text1);
+  font-family: var(--fs-ga-font);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  padding: 14px 20px;
+}
+
+/* Header action links (Billing & Invoices, etc.) */
+#fs_account .fs-header-actions {
+  font-size: 12px;
+  font-weight: 500;
+}
+#fs_account .fs-header-actions a {
+  color: var(--fs-ga-brand);
+  text-decoration: none;
+}
+#fs_account .fs-header-actions a:hover {
+  text-decoration: underline;
+}
+
+/* ── Account details key-value table ─── */
+#fs_account_details.fs-key-value-table,
+.fs-key-value-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.fs-key-value-table tr td {
+  border-top: 1px solid var(--fs-ga-border);
+  font-size: 13px;
+  padding: 11px 16px;
+  vertical-align: middle;
+}
+.fs-key-value-table tr td:first-child {
+  color: var(--fs-ga-text2);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  width: 170px;
+}
+.fs-key-value-table tr td:first-child nobr {
+  font-weight: 600;
+}
+.fs-key-value-table tr.fs-odd {
+  background: var(--fs-ga-surface2);
+}
+.fs-key-value-table code,
+.fs-key-value-table var {
+  background: var(--fs-ga-surface2);
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 6px;
+  color: var(--fs-ga-brand);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  padding: 2px 8px;
+}
+
+/* ── Status / plan badges (.fs-tag) ─── */
+label.fs-tag, span.fs-tag {
+  border-radius: 6px;
+  font-family: var(--fs-ga-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  padding: 4px 10px;
+  text-transform: uppercase;
+}
+label.fs-tag.fs-success, span.fs-tag.fs-success {
+  background: var(--fs-ga-ok);
+}
+label.fs-tag.fs-warn, span.fs-tag.fs-warn {
+  background: var(--fs-ga-amber, #D97706);
+}
+label.fs-tag.fs-error, span.fs-tag.fs-error {
+  background: var(--fs-ga-err);
+}
+label.fs-tag.fs-info, span.fs-tag.fs-info {
+  background: var(--fs-ga-brand);
+}
+
+/* ── Upgrade / Cancel / Action buttons inside account ─── */
+#fs_account .button,
+#fs_account input[type="submit"] {
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 12.5px;
+  font-weight: 600;
+  height: auto;
+  line-height: 1;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background .15s, border-color .15s;
+}
+#fs_account .button-primary {
+  background: var(--fs-ga-brand) !important;
+  border-color: var(--fs-ga-brand) !important;
+  box-shadow: 0 1px 4px rgba(37,99,235,.25) !important;
+  color: #fff !important;
+}
+#fs_account .button-primary:hover {
+  background: var(--fs-ga-brand-dk) !important;
+  border-color: var(--fs-ga-brand-dk) !important;
+}
+#fs_account .button-secondary {
+  background: var(--fs-ga-surface);
+  border: 1px solid var(--fs-ga-border);
+  color: var(--fs-ga-text2);
+}
+#fs_account .button-secondary:hover {
+  background: var(--fs-ga-bg);
+  color: var(--fs-ga-text1);
+}
+
+/* Button group */
+#fs_account .button-group .button {
+  border-radius: 0;
+}
+#fs_account .button-group .button:first-child {
+  border-radius: 8px 0 0 8px;
+}
+#fs_account .button-group .button:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+/* ── Sites table ─── */
+#fs_sites .fs-scrollable-table .fs-table-body {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+}
+#fs_sites table.widefat th {
+  background: var(--fs-ga-surface2);
+  color: var(--fs-ga-text2);
+  font-family: var(--fs-ga-font);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+#fs_sites table.widefat td {
+  border-top: 1px solid var(--fs-ga-border);
+  color: var(--fs-ga-text1);
+  font-size: 13px;
+}
+
+/* ── Billing address form ─── */
+#fs_billing_address input,
+#fs_billing_address select {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 13px;
+  padding: 7px 10px;
+}
+#fs_billing_address input:focus,
+#fs_billing_address select:focus {
+  border-color: var(--fs-ga-brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+  outline: none;
+}
+#fs_billing_address input.fs-read-mode,
+#fs_billing_address select.fs-read-mode {
+  background: none;
+  border-color: transparent;
+  border-bottom: 1px dashed var(--fs-ga-border2, #D0D6E8);
+  color: var(--fs-ga-text2);
+  padding-left: 0;
+}
+#fs_billing_address button {
+  background: var(--fs-ga-brand);
+  border: 1px solid var(--fs-ga-brand);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--fs-ga-font);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 18px;
+}
+#fs_billing_address button:hover {
+  background: var(--fs-ga-brand-dk);
+  border-color: var(--fs-ga-brand-dk);
+}
+
+/* ── License notice (not whitelabeled) ─── */
+.fs-notice[data-id="license_not_whitelabeled"].success,
+.fs-notice[data-id="license_whitelabeled"].success {
+  border-left-color: var(--fs-ga-teal);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   UPGRADE / PRICING / FREE TRIAL PAGE  (#fs_pricing)
+   URL: ?page=ga-for-wp-pricing  or  ?page=ga-for-wp-trial
+   The pricing widget is a React app rendered inside #fs_pricing_wrapper.
+   Classes below come from the compiled freemius-pricing.js bundle.
+═══════════════════════════════════════════════════════════════════ */
+
+/* Page wrapper */
+#fs_pricing {
+  font-family: var(--fs-ga-font) !important;
+}
+#fs_pricing *,
+#fs_pricing_wrapper * {
+  font-family: var(--fs-ga-font) !important;
+}
+
+/* ── App header (plugin logo + title) ─── */
+#fs_pricing_wrapper .fs-app-header {
+  background: var(--fs-ga-surface2) !important;
+  border-bottom: 1px solid var(--fs-ga-border) !important;
+  padding: 20px 32px !important;
+}
+#fs_pricing_wrapper .fs-plugin-title-and-logo {
+  color: var(--fs-ga-text1) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+}
+#fs_pricing_wrapper .fs-page-title {
+  color: var(--fs-ga-text1) !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+/* ── Billing cycle switcher ─── */
+#fs_pricing_wrapper .fs-billing-cycles {
+  background: var(--fs-ga-border) !important;
+  border-radius: 10px !important;
+  padding: 3px !important;
+}
+#fs_pricing_wrapper .fs-billing-cycles .fs-package-tab {
+  background: transparent !important;
+  border-radius: 8px !important;
+  color: var(--fs-ga-text2) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  padding: 6px 16px !important;
+  transition: all .15s !important;
+}
+#fs_pricing_wrapper .fs-billing-cycles .fs-package-tab--selected,
+#fs_pricing_wrapper .fs-billing-cycles .fs-package-tab:hover {
+  background: var(--fs-ga-surface) !important;
+  box-shadow: 0 1px 4px rgba(15,23,42,.1) !important;
+  color: var(--fs-ga-text1) !important;
+  font-weight: 600 !important;
+}
+
+/* ── License quantity selector ─── */
+#fs_pricing_wrapper .fs-license-quantity-container {
+  background: var(--fs-ga-surface2) !important;
+  border: 1px solid var(--fs-ga-border) !important;
+  border-radius: 10px !important;
+  padding: 8px !important;
+}
+#fs_pricing_wrapper .fs-license-quantity {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+/* ── Plan card ─── */
+#fs_pricing_wrapper .fs-package {
+  background: var(--fs-ga-surface) !important;
+  border: 1px solid var(--fs-ga-border) !important;
+  border-radius: var(--fs-ga-radius) !important;
+  box-shadow: 0 2px 12px rgba(15,23,42,.06) !important;
+  transition: box-shadow .2s, transform .2s !important;
+}
+#fs_pricing_wrapper .fs-package:hover {
+  box-shadow: 0 6px 24px rgba(15,23,42,.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Most popular badge */
+#fs_pricing_wrapper .fs-most-popular,
+#fs_pricing_wrapper .fs-badge {
+  background: var(--fs-ga-brand) !important;
+  border-radius: 6px 6px 0 0 !important;
+  font-family: var(--fs-ga-font) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+}
+
+/* ── Plan title ─── */
+#fs_pricing_wrapper .fs-plan-title {
+  color: var(--fs-ga-text1) !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+}
+
+/* ── Plan description ─── */
+#fs_pricing_wrapper .fs-plan-description {
+  color: var(--fs-ga-text2) !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+
+/* ── Price display ─── */
+#fs_pricing_wrapper .fs-selected-pricing-amount {
+  color: var(--fs-ga-text1) !important;
+  font-weight: 800 !important;
+}
+#fs_pricing_wrapper .fs-selected-pricing-amount-integer {
+  font-size: 42px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+}
+#fs_pricing_wrapper .fs-currency-symbol {
+  color: var(--fs-ga-text2) !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+#fs_pricing_wrapper .fs-selected-pricing-amount-fraction {
+  color: var(--fs-ga-text2) !important;
+  font-size: 16px !important;
+}
+#fs_pricing_wrapper .fs-selected-pricing-cycle,
+#fs_pricing_wrapper .fs-selected-pricing-amount-cycle {
+  color: var(--fs-ga-text3) !important;
+  font-size: 12px !important;
+}
+
+/* Annual discount pill */
+#fs_pricing_wrapper .fs-annual-discount {
+  background: #ECFDF5 !important;
+  border-radius: 20px !important;
+  color: var(--fs-ga-ok) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  padding: 2px 10px !important;
+}
+
+/* ── CTA button (.fs-round-button) ─── */
+#fs_pricing_wrapper .fs-round-button {
+  background: var(--fs-ga-brand) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(37,99,235,.3) !important;
+  color: #fff !important;
+  font-family: var(--fs-ga-font) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  letter-spacing: .01em !important;
+  padding: 13px 28px !important;
+  transition: background .15s, box-shadow .15s, transform .1s !important;
+  width: 100% !important;
+}
+#fs_pricing_wrapper .fs-round-button:hover,
+#fs_pricing_wrapper .fs-round-button:focus {
+  background: var(--fs-ga-brand-dk) !important;
+  box-shadow: 0 4px 16px rgba(37,99,235,.4) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Outline variant */
+#fs_pricing_wrapper .fs-button--outline {
+  background: transparent !important;
+  border: 2px solid var(--fs-ga-brand) !important;
+  color: var(--fs-ga-brand) !important;
+}
+#fs_pricing_wrapper .fs-button--outline:hover {
+  background: var(--fs-ga-brand-soft, #EFF6FF) !important;
+}
+
+/* ── Plan features list ─── */
+#fs_pricing_wrapper .fs-plan-features li,
+#fs_pricing_wrapper .fs-plan-features-with-value li {
+  border-bottom: 1px solid var(--fs-ga-border) !important;
+  color: var(--fs-ga-text2) !important;
+  font-size: 13px !important;
+  padding: 9px 0 !important;
+}
+#fs_pricing_wrapper .fs-plan-features li:last-child,
+#fs_pricing_wrapper .fs-plan-features-with-value li:last-child {
+  border-bottom: none !important;
+}
+#fs_pricing_wrapper .fs-feature-title {
+  color: var(--fs-ga-text1) !important;
+  font-weight: 500 !important;
+}
+
+/* ── Support tier ─── */
+#fs_pricing_wrapper .fs-plan-support {
+  color: var(--fs-ga-text2) !important;
+  font-size: 12px !important;
+}
+
+/* ── Money-back guarantee ─── */
+#fs_pricing_wrapper .fs-money-back-guarantee-title {
+  color: var(--fs-ga-ok) !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+}
+#fs_pricing_wrapper .fs-money-back-guarantee-message {
+  color: var(--fs-ga-text2) !important;
+  font-size: 12.5px !important;
+}
+
+/* ── Section header ─── */
+#fs_pricing_wrapper .fs-section-header {
+  color: var(--fs-ga-text1) !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+}
+
+/* ── Contact / support link ─── */
+#fs_pricing_wrapper .fs-contact-link {
+  color: var(--fs-ga-brand) !important;
+  font-size: 13px !important;
+}
+#fs_pricing_wrapper .fs-contact-link:hover {
+  text-decoration: underline !important;
+}
+
+/* ── Loading state ─── */
+#fs_pricing_wrapper .fs-ajax-loader .fs-ajax-loader-bar {
+  background-color: var(--fs-ga-brand) !important;
+}
+
+/* ── Modal (checkout dialog) ─── */
+#fs_pricing_wrapper .fs-modal-header {
+  background: var(--fs-ga-surface2) !important;
+  border-bottom: 1px solid var(--fs-ga-border) !important;
+  color: var(--fs-ga-text1) !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+}
+#fs_pricing_wrapper .fs-modal-content {
+  background: var(--fs-ga-surface) !important;
+}
+#fs_pricing_wrapper .fs-modal-footer {
+  background: var(--fs-ga-surface2) !important;
+  border-top: 1px solid var(--fs-ga-border) !important;
+}
+#fs_pricing_wrapper .fs-modal-close {
+  color: var(--fs-ga-text3) !important;
+}
+#fs_pricing_wrapper .fs-modal-close:hover {
+  color: var(--fs-ga-text2) !important;
+}
+
+/* ── Icon (checkmark ticks in features) ─── */
+#fs_pricing_wrapper .fs-icon {
+  color: var(--fs-ga-ok) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CONTACT / SUPPORT PAGE  (.fs-contact-form / #fs_contact)
+   URL: ?page=ga-for-wp-contact
+═══════════════════════════════════════════════════════════════════ */
+
+#fs_contact {
+  font-family: var(--fs-ga-font);
+  max-width: 640px;
+}
+#fs_contact * {
+  font-family: var(--fs-ga-font);
+}
+
+#fs_contact h2 {
+  color: var(--fs-ga-text1);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+#fs_contact label {
+  color: var(--fs-ga-text2);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+#fs_contact input[type="text"],
+#fs_contact input[type="email"],
+#fs_contact textarea,
+#fs_contact select {
+  border: 1px solid var(--fs-ga-border);
+  border-radius: 8px;
+  font-family: var(--fs-ga-font);
+  font-size: 13px;
+  padding: 9px 12px;
+  width: 100%;
+}
+#fs_contact input[type="text"]:focus,
+#fs_contact input[type="email"]:focus,
+#fs_contact textarea:focus {
+  border-color: var(--fs-ga-brand);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+  outline: none;
+}
+
+#fs_contact input[type="submit"],
+#fs_contact button[type="submit"] {
+  background: var(--fs-ga-brand);
+  border: 1px solid var(--fs-ga-brand);
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(37,99,235,.25);
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--fs-ga-font);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 10px 28px;
+  transition: background .15s;
+}
+#fs_contact input[type="submit"]:hover,
+#fs_contact button[type="submit"]:hover {
+  background: var(--fs-ga-brand-dk);
+  border-color: var(--fs-ga-brand-dk);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ICON FONTS — restore dashicons overridden by Sora font-family
+   (font-family on *::before was breaking icon glyph rendering)
+═══════════════════════════════════════════════════════════════════ */
+.dashicons,
+.dashicons-before::before,
+[class^="dashicons-"]::before,
+[class*=" dashicons-"]::before {
+  font-family: dashicons !important;
+}

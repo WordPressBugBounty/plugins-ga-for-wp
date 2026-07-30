@@ -1,632 +1,2185 @@
-# Copyright (C) 2023 PassionateBrains
-# This file is distributed under the same license as the Google Analyitcs WordPress Plugin By GA4WP.
+# Copyright (C) 2026 Passionate Brains
+# This file is distributed under the same license as the TrueAna - True Analytics Dashboard plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: GA4WP 2.2.0 \n"
-"POT-Creation-Date: 2023-03-05 11:28+0530\n"
-"PO-Revision-Date: 2023-03-05 14:31+0530\n"
-"Last-Translator: PassionateBrains<gaforwp@gmail.com>\n"
-"Language-Team: PassionateBrains<gaforwp@gmail.com>\n"
+"Project-Id-Version: TrueAna - True Analytics Dashboard 3.0.0\n"
+"Report-Msgid-Bugs-To: https://trueana.com/support\n"
+"POT-Creation-Date: 2026-07-10 09:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e;esc_html;esc_html__;esc_att;esc_attr__;"
-"esc_attr_e;esc_html_e\n"
-"X-Poedit-SearchPath-0: .\n"
+"X-Generator: manual-extraction\n"
+"X-Domain: ga-for-wp-text\n"
 
 #. Plugin Name of the plugin
-msgid "Google Analytics WordPress Plugin by GA4WP"
+msgid "TrueAna - True Analytics Dashboard"
 msgstr ""
 
 #. Plugin URI of the plugin
-#. Author URI of the plugin
-msgid "https://GA4WP.com"
+msgid "https://trueana.com/"
 msgstr ""
 
 #. Description of the plugin
-msgid "Google Analytics WordPress Plugin by GA4WP is Lightweight, Easy to connect and comes with plenty of great features.This plugin also adds Facebook Pixel, Google Ads conversion tracking and Google Optimize code snippet for your WordPress website."
+msgid "Connect Google Analytics 4 to WordPress in seconds. Track WooCommerce sales, form submissions, user behavior, and custom events — with a built-in GA4 dashboard, Facebook Pixel, Google Ads, TikTok, Pinterest & LinkedIn tracking. No coding required."
 msgstr ""
 
 #. Author of the plugin
-msgid "PassionateBrains"
+msgid "Passionate Brains"
 msgstr ""
 
-#: assests/js/core.js:19
-msgid "iterator"
-msgstr ""
-
-#: freemius/templates/plugin-info/description.php:30
-msgid "selling_point_"
-msgstr ""
-
-#: inc/class-ga4wp-admin-view.php:15 inc/view/auth.php:121 inc/view/auth.php:123
+#: inc/class-ga4wp-admin-view.php:10
 msgid "Authentication"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:20 inc/class-ga4wp-admin-view.php:34 main/class-ga4wp-admin.php:198
+#: inc/class-ga4wp-admin-view.php:15
+#: inc/class-ga4wp-admin-view.php:31
+#: main/class-ga4wp-admin.php:177
 msgid "Settings"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:23 inc/class-ga4wp-admin-view.php:26 inc/class-ga4wp-admin-view.php:38 inc/class-ga4wp-admin-view.php:41
-msgid "Find Reports"
-msgstr ""
-
-#: inc/class-ga4wp-admin-view.php:24 inc/class-ga4wp-admin-view.php:28 inc/class-ga4wp-admin-view.php:39 inc/class-ga4wp-admin-view.php:43 inc/view/dash.php:73 inc/view/dash.php:128 inc/view/dash__premium_only.php:73
+#: inc/class-ga4wp-admin-view.php:17
+#: inc/class-ga4wp-admin-view.php:19
+#: inc/class-ga4wp-admin-view.php:33
+#: inc/class-ga4wp-admin-view.php:35
+#: inc/view/settings.php:183
 msgid "Dashboard"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:30
-msgid "Upgrade to Pro"
+#: inc/class-ga4wp-admin-view.php:22
+#: inc/class-ga4wp-admin-view.php:31
+msgid "Status"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:31 inc/class-ga4wp-admin-view.php:45 inc/class-ga4wp-admin-view.php:121 inc/view/auth.php:198 inc/view/auth.php:305
-msgid "Un-Link Google Analytics"
+#: inc/class-ga4wp-admin-view.php:23
+#: inc/class-ga4wp-admin-view.php:31
+#: inc/view/advanced_integration.php:49
+msgid "Advanced Integration"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:35 inc/view/support__premium_only.php:11
+#: inc/class-ga4wp-admin-view.php:24
+#: inc/class-ga4wp-admin-view.php:31
+msgid "Explore"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:25
+#: inc/class-ga4wp-admin-view.php:31
+msgid "UTM Builder"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:26
+#: inc/class-ga4wp-admin-view.php:31
 msgid "Support"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:117 inc/view/auth.php:194 inc/view/auth.php:301
-msgid "Un-Link Google Analysis from website"
+#: inc/class-ga4wp-admin-view.php:28
+#: inc/view/advanced_integration.php:207
+#: inc/view/dash.php:268
+#: inc/view/explore.php:95
+#: inc/view/utm_builder.php:96
+#: main/traits/trait-ga4wp-ajax-handlers.php:796
+#: main/traits/trait-ga4wp-ajax-handlers.php:926
+msgid "Upgrade to Pro"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:118 inc/view/auth.php:195 inc/view/auth.php:302
-msgid "Are you sure you wish to un-link Google Analysis from Website?"
+#: inc/class-ga4wp-admin-view.php:29
+#: inc/class-ga4wp-admin-view.php:37
+#: inc/class-ga4wp-admin-view.php:157
+msgid "Un-Link Google Analytics"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:122
-msgid "Un-Link and Remove All Settings"
+#: inc/class-ga4wp-admin-view.php:97
+msgid "Connected"
 msgstr ""
 
-#: inc/class-ga4wp-admin-view.php:123 inc/view/auth.php:199 inc/view/auth.php:307
+#: inc/class-ga4wp-admin-view.php:101
+msgid "Re-auth needed"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:105
+msgid "Not connected"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:110
+msgid "Docs"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:114
+#: inc/view/dash.php:225
+#: main/traits/trait-ga4wp-ajax-handlers.php:510
+msgid "Upgrade"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:118
+#: inc/class-ga4wp-admin-view.php:176
+msgid "Un-Link"
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:158
+msgid "Are you sure you wish to un-link Google Analytics from your website? This will stop all tracking immediately."
+msgstr ""
+
+#: inc/class-ga4wp-admin-view.php:164
 msgid "Cancel"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:17 inc/view/settings.php:77
-msgid "Please supply proper Google Optimize code!"
+#: inc/class-ga4wp-admin-view.php:170
+msgid "Un-Link & Remove All Settings"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:22 inc/view/settings.php:82
-msgid "Please supply proper Facebook Pixel code!"
+#: main/traits/trait-ga4wp-ajax-handlers.php:1400
+msgid "Unauthorized"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:27 inc/view/settings.php:87
+#: inc/view/advanced_integration.php:15
+#: inc/view/settings.php:133
 msgid "Please supply proper Google Adword code!"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:30 inc/view/settings.php:90
+#: inc/view/advanced_integration.php:17
+#: inc/view/settings.php:136
 msgid "Please supply proper Google Adword Label!"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:39 inc/view/auth.php:29 inc/view/auth.php:41 inc/view/auth.php:58 inc/view/auth.php:67 inc/view/dash.php:48 inc/view/dash__premium_only.php:48 inc/view/settings.php:25 inc/view/settings.php:62
-#: inc/view/settings.php:99
+#: inc/view/advanced_integration.php:27
+#: inc/view/auth.php:25
+#: inc/view/auth.php:37
+#: inc/view/auth.php:54
+#: inc/view/auth.php:63
+#: inc/view/dash.php:44
+#: inc/view/settings.php:25
+#: inc/view/settings.php:48
+#: inc/view/settings.php:83
+#: inc/view/settings.php:100
+#: inc/view/settings.php:145
 msgid "Setting Saved!"
 msgstr ""
 
-#: inc/view/advance__premium_only.php:44 inc/view/settings.php:104
-msgid "Error while saving data! May be data is not in proper format. Please correct Data formats."
-msgstr ""
-
-#: inc/view/advance__premium_only.php:51
-msgid "there is nothing new to save."
-msgstr ""
-
-#: inc/view/advance__premium_only.php:57 inc/view/auth.php:108 inc/view/dash.php:63 inc/view/dash__premium_only.php:63 inc/view/settings.php:118
-msgid "Please correct following Errors:"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:67
-msgid "Advance Settings"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:68 inc/view/auth.php:131 inc/view/settings.php:134 inc/view/support__premium_only.php:23
-msgid "Documentation"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:75 main/class-ga4wp-auth.php:445
-msgid "Google Optimize"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:79 main/class-ga4wp-auth.php:452
-msgid "Enable Google Optimize"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:84
-msgid "How to get your Goolge Optimize Container ID?"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:87 inc/view/advance__premium_only.php:96 main/class-ga4wp-auth.php:470
-msgid "FaceBook Pixel"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:91 main/class-ga4wp-auth.php:477
-msgid "Enable Facebook Pixel"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:101 main/class-ga4wp-auth.php:497
-msgid "Google Adwords"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:105 main/class-ga4wp-auth.php:504
-msgid "Enable Google Adwords Conversion Tracking"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:109
-msgid "AW-CONVERSION_ID"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:112
-msgid "AW-CONVERSION_LABEL"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:113 main/class-ga4wp-auth.php:525
-msgid "How to get your Google Ads Conversion ID and Label?"
-msgstr ""
-
-#: inc/view/advance__premium_only.php:121
-msgid "Save Advance Settings"
-msgstr ""
-
-#: inc/view/auth.php:47 inc/view/auth.php:83
-msgid "Please complete Google Analytics Website Linking Process!"
-msgstr ""
-
-#: inc/view/auth.php:74
-msgid "Please confirm using manual tracking or use auto connect facility"
-msgstr ""
-
-#: inc/view/auth.php:92
-msgid "Please agree with privacy policy and terms of service of plugin!"
-msgstr ""
-
-#: inc/view/auth.php:121
-msgid "completed"
-msgstr ""
-
-#: inc/view/auth.php:123
-msgid "uncomplete"
-msgstr ""
-
-#: inc/view/auth.php:129 inc/view/report.php:14 inc/view/settings.php:132
-msgid "Upgrade to Pro!"
-msgstr ""
-
-#: inc/view/auth.php:149
-msgid "Auto Connect Method(Recommended)"
-msgstr ""
-
-#: inc/view/auth.php:152
-msgid "Manual Connect Method"
-msgstr ""
-
-#: inc/view/auth.php:161
-msgid "Please choose your property which you want to link with website and hit submit button."
-msgstr ""
-
-#: inc/view/auth.php:166
-msgid "Please complete following requirements then click \"Link your Google Analytics\" button."
-msgstr ""
-
-#: inc/view/auth.php:168
-msgid "Need active Google Analytics account. If you not have one "
-msgstr ""
-
-#: inc/view/auth.php:168
-msgid "please sign-up here."
-msgstr ""
-
-#: inc/view/auth.php:169
-msgid "Need to have at least one active property (either GA4 or UA) for current website in Google Analytics Account. "
-msgstr ""
-
-#: inc/view/auth.php:176
-msgid "Please link your Google Analyitcs Account for data collection."
-msgstr ""
-
-#: inc/view/auth.php:182
-msgid "Please Enter your property-id / Data stream measurement id to link with website and hit submit button. "
-msgstr ""
-
-#: inc/view/auth.php:207
-msgid "Please put your Google Analytics Propety Id / Data stream measurement id from your GA4 here."
-msgstr ""
-
-#: inc/view/auth.php:306
-msgid "Remove Access for all My Websites"
-msgstr ""
-
-#: inc/view/auth.php:320
-msgid "I agree with "
-msgstr ""
-
-#: inc/view/auth.php:320
-msgid "privacy policy"
-msgstr ""
-
-#: inc/view/auth.php:320
-msgid "and"
-msgstr ""
-
-#: inc/view/auth.php:320
-msgid "terms of service"
-msgstr ""
-
-#: inc/view/auth.php:320
-msgid "of GA4WP: Google Analytics for Wordpress."
-msgstr ""
-
-#: inc/view/auth.php:327
-msgid "Submit"
-msgstr ""
-
-#: inc/view/dash.php:94 inc/view/dash.php:106 inc/view/dash__premium_only.php:94
-msgid "Select View"
-msgstr ""
-
-#: inc/view/dash.php:99 inc/view/dash__premium_only.php:99
-msgid "Today"
-msgstr ""
-
-#: inc/view/dash.php:100 inc/view/dash__premium_only.php:100
-msgid "Yesterday"
-msgstr ""
-
-#: inc/view/dash.php:101 inc/view/dash__premium_only.php:101
-msgid "Last 7 days"
-msgstr ""
-
-#: inc/view/dash.php:102 inc/view/dash__premium_only.php:102
-msgid "Last 30 days"
-msgstr ""
-
-#: inc/view/dash.php:103 inc/view/dash__premium_only.php:103
-msgid "Current Year"
-msgstr ""
-
-#: inc/view/dash.php:104 inc/view/dash__premium_only.php:104
-msgid "Custom Range"
-msgstr ""
-
-#: inc/view/dash.php:110 inc/view/dash__premium_only.php:110
-msgid "From"
-msgstr ""
-
-#: inc/view/dash.php:114 inc/view/dash__premium_only.php:114
-msgid "To"
-msgstr ""
-
-#: inc/view/dash.php:119 inc/view/dash__premium_only.php:119
-msgid "Go"
-msgstr ""
-
-#: inc/view/dash.php:129 inc/view/dash__premium_only.php:128
-msgid "Audience"
-msgstr ""
-
-#: inc/view/dash.php:130 inc/view/dash__premium_only.php:130
-msgid "Acquisition"
-msgstr ""
-
-#: inc/view/dash.php:131 inc/view/dash__premium_only.php:131
-msgid "Behavior"
-msgstr ""
-
-#: inc/view/dash.php:132 inc/view/dash__premium_only.php:135
-msgid "WooCommerce"
-msgstr ""
-
-#: inc/view/dash.php:133 inc/view/dash__premium_only.php:137
-msgid "Google Ads"
-msgstr ""
-
-#: inc/view/dash.php:134 inc/view/dash__premium_only.php:138
-msgid "Google Adsense"
-msgstr ""
-
-#: inc/view/dash.php:139
-msgid "Please upgrade to unlock reports and stats associated with your website."
-msgstr ""
-
-#: inc/view/dash.php:141 inc/view/dash.php:147 inc/view/dash.php:153 inc/view/dash.php:159 inc/view/dash.php:165 inc/view/dash.php:171
-msgid "Upgrade Now!"
-msgstr ""
-
-#: inc/view/dash.php:145
-msgid "Please upgrade to unlock reports and stats associated with acquisition."
-msgstr ""
-
-#: inc/view/dash.php:151
-msgid "Please upgrade to unlock reports and stats associated with behavior of users."
-msgstr ""
-
-#: inc/view/dash.php:157
-msgid "Please upgrade to unlock reports and stats associated with conversion."
-msgstr ""
-
-#: inc/view/dash.php:163
-msgid "Please upgrade to unlock reports and stats associated with google ads."
-msgstr ""
-
-#: inc/view/dash.php:169
-msgid "Please upgrade to unlock reports and stats associated with google adsense."
-msgstr ""
-
-#: inc/view/dash__premium_only.php:53 inc/view/settings.php:30 inc/view/settings.php:67
+#: inc/view/advanced_integration.php:29
+#: inc/view/dash.php:49
+#: inc/view/settings.php:30
+#: inc/view/settings.php:53
 msgid "Error while saving data!"
 msgstr ""
 
-#: inc/view/dash__premium_only.php:106
-msgid "Date Range"
+#: inc/view/advanced_integration.php:33
+msgid "Nothing to save."
 msgstr ""
 
-#: inc/view/dash__premium_only.php:129
-msgid "Forms Conversion"
+#: inc/view/advanced_integration.php:49
+msgid "Connect third-party tracking pixels and conversion tags to your website."
 msgstr ""
 
-#: inc/view/report.php:11
-msgid "Find Reports on Google Analyitcs"
+#: inc/view/advanced_integration.php:60
+#: main/traits/trait-ga4wp-ajax-handlers.php:225
+msgid "Facebook Pixel"
 msgstr ""
 
-#: inc/view/report.php:23
-msgid "Overview Report for your Shop"
+#: inc/view/advanced_integration.php:61
+#: main/traits/trait-ga4wp-ajax-handlers.php:226
+msgid "Track visitors on Facebook via Meta Pixel."
 msgstr ""
 
-#: inc/view/report.php:27
-msgid "Shopping Behaviour"
+#: inc/view/advanced_integration.php:67
+#: main/traits/trait-ga4wp-ajax-handlers.php:232
+msgid "Enable Facebook Pixel"
 msgstr ""
 
-#: inc/view/report.php:31
-msgid "Checkout Behaviour"
+#: inc/view/advanced_integration.php:68
+#: main/traits/trait-ga4wp-ajax-handlers.php:233
+msgid "Inject Meta Pixel snippet on all pages."
 msgstr ""
 
-#: inc/view/report.php:39
-msgid "Sales Performance"
+#: inc/view/advanced_integration.php:72
+#: main/traits/trait-ga4wp-ajax-handlers.php:237
+msgid "Pixel ID"
 msgstr ""
 
-#: inc/view/report.php:43
-msgid "Product List Performance"
+#: inc/view/advanced_integration.php:74
+#: main/traits/trait-ga4wp-ajax-handlers.php:239
+msgid "How to get your Facebook Pixel ID?"
 msgstr ""
 
-#: inc/view/report.php:47
-msgid "Coupon Performance"
+#: inc/view/advanced_integration.php:85
+#: main/traits/trait-ga4wp-ajax-handlers.php:248
+msgid "Google Ads Conversion Tracking"
 msgstr ""
 
-#: inc/view/report.php:56
-msgid "User Content Enagagement Flow"
+#: inc/view/advanced_integration.php:86
+#: main/traits/trait-ga4wp-ajax-handlers.php:249
+msgid "Track conversions back to Google Ads campaigns."
 msgstr ""
 
-#: inc/view/report.php:60
-msgid "Landing Page Report"
+#: inc/view/advanced_integration.php:92
+#: main/traits/trait-ga4wp-ajax-handlers.php:255
+msgid "Enable Google Ads Conversion Tracking"
 msgstr ""
 
-#: inc/view/report.php:64
-msgid "Website Speed Performance"
+#: inc/view/advanced_integration.php:97
+#: main/traits/trait-ga4wp-ajax-handlers.php:260
+msgid "Conversion ID"
 msgstr ""
 
-#: inc/view/report.php:72
-msgid "Individual Page Loading Time"
+#: inc/view/advanced_integration.php:100
+#: main/traits/trait-ga4wp-ajax-handlers.php:263
+msgid "Conversion Label"
 msgstr ""
 
-#: inc/view/report.php:76
-msgid "Website Page Views"
+#: inc/view/advanced_integration.php:104
+#: main/traits/trait-ga4wp-ajax-handlers.php:267
+msgid "How to get Conversion ID and Label?"
 msgstr ""
 
-#: inc/view/report.php:80
-msgid "Overview Report for your Website"
+#: inc/view/advanced_integration.php:111
+#: main/traits/trait-ga4wp-ajax-handlers.php:276
+msgid "Save Advanced Settings"
 msgstr ""
 
-#: inc/view/report.php:89
-msgid "Overview Report of Users"
+#: inc/view/advanced_integration.php:121
+msgid "Unlock More Integrations with Pro"
 msgstr ""
 
-#: inc/view/report.php:93
-msgid "Users Demographic Overview"
+#: inc/view/advanced_integration.php:121
+msgid "Upgrade to connect additional advertising and analytics pixels across all major platforms."
 msgstr ""
 
-#: inc/view/report.php:97
-msgid "Users Location"
+#: inc/view/advanced_integration.php:154
+msgid "Bing / Microsoft UET"
 msgstr ""
 
-#: inc/view/report.php:105
-msgid "User Engagement"
+#: inc/view/advanced_integration.php:155
+msgid "Track Microsoft Ads conversions and build remarketing audiences via the Universal Event Tracking tag."
 msgstr ""
 
-#: inc/view/report.php:109
-msgid "Devices Overview"
+#: inc/view/advanced_integration.php:164
+msgid "TikTok Pixel"
 msgstr ""
 
-#: inc/view/report.php:113
-msgid "New vs Returning Users"
+#: inc/view/advanced_integration.php:165
+msgid "Measure TikTok ad performance, track purchase events, and create custom audiences for retargeting."
 msgstr ""
 
-#: inc/view/report__premium_only.php:11
-msgid "Find Important Reports"
+#: inc/view/advanced_integration.php:174
+msgid "Pinterest Tag"
 msgstr ""
 
-#: inc/view/report__premium_only.php:21
-msgid "Property View"
+#: inc/view/advanced_integration.php:175
+msgid "Track conversions from Pinterest ads and build retargeting audiences from your site visitors."
 msgstr ""
 
-#: inc/view/report__premium_only.php:62
-msgid "As you have choosen manual tracking we can not find URLs of your reports on Google Analytics account. So for availing this facility you must need to connect website auto mode."
+#: inc/view/advanced_integration.php:184
+msgid "LinkedIn Insight Tag"
 msgstr ""
 
-#: inc/view/report__premium_only.php:63
-msgid "Change your Authentication Method!"
+#: inc/view/advanced_integration.php:185
+msgid "Measure B2B ad conversions on LinkedIn and build matched audience segments from your visitors."
 msgstr ""
 
-#: inc/view/settings.php:111
+#: inc/view/advanced_integration.php:194
+msgid "Snapchat Pixel"
+msgstr ""
+
+#: inc/view/advanced_integration.php:195
+msgid "Track Snapchat ad conversions, measure campaign ROI, and create audiences for Snap retargeting."
+msgstr ""
+
+#: inc/view/advanced_integration.php:203
+msgid "Upgrade to Pro to unlock all integrations and track every advertising channel from one place."
+msgstr ""
+
+#: inc/view/auth.php:43
+#: inc/view/auth.php:79
+msgid "Please complete Google Analytics Website Linking Process!"
+msgstr ""
+
+#: inc/view/auth.php:70
+msgid "Please confirm using manual tracking or use auto connect facility"
+msgstr ""
+
+#: inc/view/auth.php:88
+msgid "Please agree with privacy policy and terms of service of plugin!"
+msgstr ""
+
+#: inc/view/auth.php:103
+#: inc/view/dash.php:58
+#: inc/view/settings.php:164
+msgid "Please correct following Errors:"
+msgstr ""
+
+#: inc/view/auth.php:253
+msgid "Connection Method"
+msgstr ""
+
+#: inc/view/auth.php:255
+msgid "Auto Connect signs in with Google. Manual Connect uses a Measurement ID you enter directly."
+msgstr ""
+
+#: inc/view/auth.php:258
+msgid "Auto"
+msgstr ""
+
+#: inc/view/auth.php:259
+msgid "Recommended"
+msgstr ""
+
+#: inc/view/auth.php:276
+msgid "Manual"
+msgstr ""
+
+#: inc/view/auth.php:291
+msgid "Re-authentication required"
+msgstr ""
+
+#: inc/view/auth.php:292
+msgid "Your Google Analytics access token has expired or been revoked. Re-link your account to restore access to all reports and features."
+msgstr ""
+
+#: inc/view/auth.php:295
+#: inc/view/auth.php:352
+#: inc/view/auth.php:702
+msgid "Re-Link with Google Account"
+msgstr ""
+
+#: inc/view/auth.php:310
+msgid "Before you connect"
+msgstr ""
+
+#: inc/view/auth.php:311
+msgid "Make sure these requirements are met before linking your account"
+msgstr ""
+
+#: inc/view/auth.php:319
+msgid "Active Google Analytics account"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "Don't have one?"
+msgstr ""
+
+#: inc/view/auth.php:320
+msgid "Sign up here"
+msgstr ""
+
+#: inc/view/auth.php:328
+msgid "Active property configured in your GA account"
+msgstr ""
+
+#: inc/view/auth.php:329
+msgid "At least one GA4 property must be set up for your website"
+msgstr ""
+
+#: inc/view/auth.php:343
+msgid "Google account linked! Choose an existing Analytics property below, or create a new one."
+msgstr ""
+
+#: inc/view/auth.php:352
+msgid "Link with Google Analytics"
+msgstr ""
+
+#: inc/view/auth.php:364
+msgid "Enter Measurement ID"
+msgstr ""
+
+#: inc/view/auth.php:365
+msgid "Paste your GA4 Measurement ID (G-XXXXXXXX) directly"
+msgstr ""
+
+#: inc/view/auth.php:385
+msgid "Your GA4 Data Stream Measurement ID from Google Analytics"
+msgstr ""
+
+#: inc/view/auth.php:457
+msgid "Select Analytics Property"
+msgstr ""
+
+#: inc/view/auth.php:458
+msgid "Choose the property and data stream to link with this website"
+msgstr ""
+
+#: inc/view/auth.php:475
+msgid "Choose the property to track data for."
+msgstr ""
+
+#: inc/view/auth.php:480
+msgid "Refresh list"
+msgstr ""
+
+#: inc/view/auth.php:495
+msgid "No Analytics properties found in your account. Create one below to get started."
+msgstr ""
+
+#: inc/view/auth.php:507
+msgid "Create a new property instead"
+msgstr ""
+
+#: inc/view/auth.php:516
+msgid "Create New Analytics Property"
+msgstr ""
+
+#: inc/view/auth.php:517
+msgid "Set up a fresh GA4 property and web data stream"
+msgstr ""
+
+#: inc/view/auth.php:532
+msgid "Loading accounts…"
+msgstr ""
+
+#: inc/view/auth.php:535
+msgid "Google Analytics Account"
+msgstr ""
+
+#: inc/view/auth.php:545
+msgid "No Google Analytics accounts found"
+msgstr ""
+
+#: inc/view/auth.php:547
+msgid "Your Google account doesn't have a Google Analytics account yet. Please create one at Google Analytics, then come back and reload."
+msgstr ""
+
+#: inc/view/auth.php:551
+msgid "Create account at Google Analytics"
+msgstr ""
+
+#: inc/view/auth.php:554
+msgid "Reload accounts"
+msgstr ""
+
+#: inc/view/auth.php:563
+msgid "My Website"
+msgstr ""
+
+#: inc/view/auth.php:564
+msgid "Property Name"
+msgstr ""
+
+#: inc/view/auth.php:574
+msgid "Website URL"
+msgstr ""
+
+#: inc/view/auth.php:589
+#: inc/view/status.php:255
+msgid "Timezone"
+msgstr ""
+
+#: inc/view/auth.php:600
+#: inc/view/status.php:302
+msgid "Currency"
+msgstr ""
+
+#: inc/view/auth.php:615
+msgid "Enable Enhanced Measurement"
+msgstr ""
+
+#: inc/view/auth.php:616
+msgid "Auto-tracks scrolls, outbound clicks, video plays, file downloads, and site search"
+msgstr ""
+
+#: inc/view/auth.php:625
+msgid "Create Property"
+msgstr ""
+
+#: inc/view/auth.php:663
+msgid "Granted Permissions"
+msgstr ""
+
+#: inc/view/auth.php:664
+msgid "OAuth scopes authorized by your Google account"
+msgstr ""
+
+#: inc/view/auth.php:695
+msgid "Both read and edit scopes required"
+msgstr ""
+
+#: inc/view/auth.php:696
+msgid "These scopes are required for dashboard, on-site reports, and edit actions. Please re-link your account and grant both permissions."
+msgstr ""
+
+#: inc/view/auth.php:723
+msgid "I agree with the "
+msgstr ""
+
+#: inc/view/auth.php:724
+msgid "privacy policy"
+msgstr ""
+
+#: inc/view/auth.php:725
+msgid "and"
+msgstr ""
+
+#: inc/view/auth.php:726
+msgid "terms of service"
+msgstr ""
+
+#: inc/view/auth.php:727
+msgid "of TrueAna."
+msgstr ""
+
+#: inc/view/auth.php:733
+msgid "Save Settings"
+msgstr ""
+
+#: inc/view/auth.php:737
+msgid "Your data is secured by Google OAuth 2.0"
+msgstr ""
+
+#: inc/view/auth.php:804
+msgid "— no accounts found —"
+msgstr ""
+
+#: inc/view/auth.php:808
+#: inc/view/auth.php:818
+msgid "Error loading accounts"
+msgstr ""
+
+#: inc/view/auth.php:810
+#: inc/view/auth.php:822
+msgid "Could not load accounts. Please re-link your Google account or try again."
+msgstr ""
+
+#: inc/view/auth.php:870
+msgid "Please select a Google Analytics account."
+msgstr ""
+
+#: inc/view/auth.php:878
+msgid "Please enter a property name."
+msgstr ""
+
+#: inc/view/auth.php:886
+msgid "Please enter the website URL."
+msgstr ""
+
+#: inc/view/auth.php:935
+msgid "Property created! Click Save Settings to link it."
+msgstr ""
+
+#: inc/view/auth.php:941
+msgid "Error creating property. Please try again."
+msgstr ""
+
+#: inc/view/auth.php:952
+msgid "Network error. Please try again."
+msgstr ""
+
+#: inc/view/dash.php:93
+msgid "Analytics Dashboard"
+msgstr ""
+
+#: inc/view/dash.php:115
+msgid "From"
+msgstr ""
+
+#: inc/view/dash.php:119
+msgid "To"
+msgstr ""
+
+#: inc/view/dash.php:125
+msgid "Apply"
+msgstr ""
+
+#: inc/view/dash.php:136
+msgid "Showing"
+msgstr ""
+
+#: inc/view/dash.php:138
+msgid "compared to"
+msgstr ""
+
+#: inc/view/dash.php:148
+msgid "Audience"
+msgstr ""
+
+#: inc/view/dash.php:153
+msgid "Acquisition"
+msgstr ""
+
+#: inc/view/dash.php:158
+msgid "Behavior"
+msgstr ""
+
+#: inc/view/dash.php:163
+msgid "Real-Time"
+msgstr ""
+
+#: inc/view/dash.php:169
+#: main/traits/trait-ga4wp-ajax-handlers.php:484
+msgid "Form Tracking"
+msgstr ""
+
+#: inc/view/dash.php:175
+#: main/traits/trait-ga4wp-ajax-handlers.php:485
+msgid "Video Tracking"
+msgstr ""
+
+#: inc/view/dash.php:182
+msgid "Conversion"
+msgstr ""
+
+#: inc/view/dash.php:188
+msgid "Purchase Journey"
+msgstr ""
+
+#: inc/view/dash.php:194
+msgid "Product Performance"
+msgstr ""
+
+#: inc/view/dash.php:200
+msgid "Subscriptions"
+msgstr ""
+
+#: inc/view/dash.php:207
+msgid "Content"
+msgstr ""
+
+#: inc/view/dash.php:213
+#: main/traits/trait-ga4wp-ajax-handlers.php:490
+msgid "Google Ads"
+msgstr ""
+
+#: inc/view/dash.php:219
+msgid "Google Adsense"
+msgstr ""
+
+#: inc/view/dash.php:249
+msgid "Available in the Pro version"
+msgstr ""
+
+#: inc/view/dash.php:279
+msgid "Unlock All Reports"
+msgstr ""
+
+#: inc/view/dash.php:280
+msgid "Upgrade to TrueAna Pro for audience, acquisition, behavior, conversion, and ads reports."
+msgstr ""
+
+#: inc/view/dash.php:302
+msgid "Upgrade to unlock all reports and analytics for your website."
+msgstr ""
+
+#: inc/view/dash.php:306
+msgid "Upgrade Now"
+msgstr ""
+
+#: inc/view/explore.php:9
+msgid "Explore — Custom Report Builder"
+msgstr ""
+
+#: inc/view/explore.php:10
+msgid "Build any GA4 report you can imagine. Pick dimensions, metrics, chart types, date ranges, and save reports for later — all from inside WordPress."
+msgstr ""
+
+#: inc/view/explore.php:32
+msgid "Drag-and-Drop Report Builder"
+msgstr ""
+
+#: inc/view/explore.php:33
+msgid "Choose any GA4 dimension and metric combination. Mix and match to create reports that answer your exact questions."
+msgstr ""
+
+#: inc/view/explore.php:42
+msgid "Multiple Visualization Types"
+msgstr ""
+
+#: inc/view/explore.php:43
+msgid "Render results as a table, bar chart, line chart, or doughnut chart — switch views without re-running the query."
+msgstr ""
+
+#: inc/view/explore.php:52
+msgid "Custom Date Ranges"
+msgstr ""
+
+#: inc/view/explore.php:53
+msgid "Run reports for any date window — today, last 7 days, last 90 days, or any custom range you define."
+msgstr ""
+
+#: inc/view/explore.php:62
+msgid "Custom Dimension Support"
+msgstr ""
+
+#: inc/view/explore.php:63
+msgid "Include custom dimensions registered in your GA4 property — author, post type, category, and more — as report dimensions."
+msgstr ""
+
+#: inc/view/explore.php:72
+msgid "Save & Name Reports"
+msgstr ""
+
+#: inc/view/explore.php:73
+msgid "Bookmark any custom report with a name and description. Saved reports appear in your Dashboard Settings for quick re-access."
+msgstr ""
+
+#: inc/view/explore.php:82
+msgid "Row Limit & Sorting"
+msgstr ""
+
+#: inc/view/explore.php:83
+msgid "Control how many rows to fetch (up to 500) and sort by any metric column — descending or ascending — in a single click."
+msgstr ""
+
+#: inc/view/explore.php:91
+msgid "Upgrade to Pro to unlock the Explore report builder and build unlimited custom GA4 reports."
+msgstr ""
+
+#: inc/view/settings.php:87
+msgid "Error while saving dashboard settings!"
+msgstr ""
+
+#: inc/view/settings.php:112
+msgid "Custom Dimension settings saved!"
+msgstr ""
+
+#: inc/view/settings.php:121
+msgid "Email settings saved!"
+msgstr ""
+
+#: inc/view/settings.php:128
+msgid "Please supply proper Facebook Pixel code!"
+msgstr ""
+
+#: inc/view/settings.php:150
+msgid "Error while saving data! May be data is not in proper format. Please correct Data formats."
+msgstr ""
+
+#: inc/view/settings.php:157
 msgid "there is nothing new to save"
 msgstr ""
 
-#: inc/view/settings.php:141
-msgid "Tracking Settings"
+#: inc/view/settings.php:174
+msgid "Tracking"
 msgstr ""
 
-#: inc/view/settings.php:142
-msgid "Events Settings"
+#: inc/view/settings.php:177
+msgid "Events"
 msgstr ""
 
-#: inc/view/settings.php:143
-msgid "Advanced Integrations"
+#: inc/view/settings.php:180
+msgid "Widgets"
 msgstr ""
 
-#: inc/view/support__premium_only.php:14
-msgid "Plugin Website"
+#: inc/view/settings.php:186
+msgid "Custom Dimensions"
 msgstr ""
 
-#: inc/view/support__premium_only.php:24
-msgid "Documentation is help to configure plugin as well it also help you better understand data collected by plugin for your google analytics."
+#: inc/view/settings.php:192
+msgid "Email"
 msgstr ""
 
-#: inc/view/support__premium_only.php:25 inc/view/support__premium_only.php:41
-msgid "Know More"
+#: inc/view/status.php:36
+msgid "2 Months"
 msgstr ""
 
-#: inc/view/support__premium_only.php:31
+#: inc/view/status.php:37
+msgid "14 Months"
+msgstr ""
+
+#: inc/view/status.php:38
+msgid "26 Months"
+msgstr ""
+
+#: inc/view/status.php:39
+msgid "38 Months"
+msgstr ""
+
+#: inc/view/status.php:40
+msgid "50 Months"
+msgstr ""
+
+#: inc/view/status.php:44
+msgid "Standard"
+msgstr ""
+
+#: inc/view/status.php:45
+msgid "Analytics 360"
+msgstr ""
+
+#: inc/view/status.php:76
+msgid "N/A"
+msgstr ""
+
+#: inc/view/status.php:84
+msgid "No GA4 property connected. Please complete authentication first."
+msgstr ""
+
+#: inc/view/status.php:92
+msgid "Property data is cached for 24 hours."
+msgstr ""
+
+#. translators: %s: formatted date/time
+#: inc/view/status.php:99
+#, php-format
+msgid "Last fetched: %s"
+msgstr ""
+
+#: inc/view/status.php:106
+msgid "Refresh now"
+msgstr ""
+
+#: inc/view/status.php:125
+msgid "Property Overview"
+msgstr ""
+
+#: inc/view/status.php:126
+msgid "Core details about your connected GA4 property"
+msgstr ""
+
+#: inc/view/status.php:134
+#: inc/view/status.php:477
+msgid "Display Name"
+msgstr ""
+
+#: inc/view/status.php:144
+msgid "Measurement ID"
+msgstr ""
+
+#: inc/view/status.php:156
+msgid "Property Resource"
+msgstr ""
+
+#: inc/view/status.php:166
+msgid "Service Level"
+msgstr ""
+
+#: inc/view/status.php:179
+msgid "Industry Category"
+msgstr ""
+
+#: inc/view/status.php:246
+msgid "Regional Settings"
+msgstr ""
+
+#: inc/view/status.php:247
+msgid "Timezone and currency compared across GA4, WordPress, and WooCommerce"
+msgstr ""
+
+#: inc/view/status.php:259
+#: inc/view/status.php:306
+msgid "Match"
+msgstr ""
+
+#: inc/view/status.php:263
+#: inc/view/status.php:310
+#: inc/view/status.php:536
+msgid "Mismatch"
+msgstr ""
+
+#: inc/view/status.php:290
+msgid "Timezone mismatch may cause date discrepancies in your GA4 reports. Update your WordPress timezone under"
+msgstr ""
+
+#: inc/view/status.php:291
+msgid "Settings → General"
+msgstr ""
+
+#: inc/view/status.php:334
+msgid "WooCommerce not active"
+msgstr ""
+
+#: inc/view/status.php:341
+msgid "Currency mismatch may cause revenue discrepancies. Update your WooCommerce currency under"
+msgstr ""
+
+#: inc/view/status.php:342
+msgid "WooCommerce → Settings"
+msgstr ""
+
+#: inc/view/status.php:358
+msgid "Data & Marketing Preferences"
+msgstr ""
+
+#: inc/view/status.php:359
+msgid "Data retention and user reset settings for this property"
+msgstr ""
+
+#: inc/view/status.php:367
+msgid "Event Data Retention"
+msgstr ""
+
+#: inc/view/status.php:380
+msgid "Reset User Data on New Activity"
+msgstr ""
+
+#: inc/view/status.php:385
+msgid "Enabled"
+msgstr ""
+
+#: inc/view/status.php:387
+msgid "Disabled"
+msgstr ""
+
+#: inc/view/status.php:444
+msgid "All Custom Dimensions"
+msgstr ""
+
+#: inc/view/status.php:451
+msgid "Plugin"
+msgstr ""
+
+#: inc/view/status.php:455
+msgid "All custom dimensions on this GA4 property — plugin-required listed first, followed by any external dimensions."
+msgstr ""
+
+#: inc/view/status.php:461
+msgid "Create Missing"
+msgstr ""
+
+#: inc/view/status.php:464
+#: inc/view/status.php:579
+#: main/traits/trait-ga4wp-ajax-handlers.php:179
+msgid "Re-link your Google account and grant the analytics.edit permission to enable this action."
+msgstr ""
+
+#: inc/view/status.php:466
+#: inc/view/status.php:581
+#: main/traits/trait-ga4wp-ajax-handlers.php:181
+msgid "analytics.edit scope required"
+msgstr ""
+
+#: inc/view/status.php:476
+msgid "Parameter Name"
+msgstr ""
+
+#: inc/view/status.php:478
+msgid "Scope"
+msgstr ""
+
+#: inc/view/status.php:479
+msgid "Description"
+msgstr ""
+
+#: inc/view/status.php:480
+msgid "Plugin Status"
+msgstr ""
+
+#: inc/view/status.php:481
+msgid "GA4 Status"
+msgstr ""
+
+#: inc/view/status.php:482
+msgid "Scope Status"
+msgstr ""
+
+#: inc/view/status.php:501
+msgid "Plugin Required"
+msgstr ""
+
+#: inc/view/status.php:506
+msgid "External"
+msgstr ""
+
+#: inc/view/status.php:516
+msgid "Created"
+msgstr ""
+
+#: inc/view/status.php:521
+msgid "Not Created"
+msgstr ""
+
+#: inc/view/status.php:531
+msgid "Matched"
+msgstr ""
+
+#: inc/view/status.php:549
+msgid "No custom dimensions found on this GA4 property."
+msgstr ""
+
+#: inc/view/status.php:569
+msgid "Measurement Protocol Secret"
+msgstr ""
+
+#: inc/view/status.php:570
+msgid "A server-side API secret used so events (e.g. WooCommerce order confirmations) still reach GA4 even after the browser has already navigated away."
+msgstr ""
+
+#: inc/view/status.php:576
+msgid "Retry"
+msgstr ""
+
+#: inc/view/status.php:576
+msgid "Generate Now"
+msgstr ""
+
+#: inc/view/status.php:590
+msgid "Secret Status"
+msgstr ""
+
+#: inc/view/status.php:595
+msgid "Generated"
+msgstr ""
+
+#: inc/view/status.php:598
+msgid "Copy secret"
+msgstr ""
+
+#: inc/view/status.php:603
+msgid "Failed"
+msgstr ""
+
+#: inc/view/status.php:607
+msgid "Not Generated"
+msgstr ""
+
+#. translators: %s: raw error message returned by the Google Analytics Admin API
+#: inc/view/status.php:620
+#, php-format
+msgid "Google Analytics rejected the request: <strong>%s</strong>. "
+msgstr ""
+
+#: inc/view/status.php:623
+msgid "This usually means the Measurement Protocol terms have not been accepted for this property yet. Open Google Analytics → Admin → Data Streams → your stream → Measurement Protocol API secrets, create one secret there to accept the terms, then use Retry above."
+msgstr ""
+
+#: inc/view/status.php:625
+msgid "Open Google Analytics"
+msgstr ""
+
+#: inc/view/support.php:9
+msgid "Support &amp; Community"
+msgstr ""
+
+#: inc/view/support.php:10
+msgid "Everything you need to get help, share feedback, and grow with TrueAna."
+msgstr ""
+
+#: inc/view/support.php:17
+msgid "Enjoying TrueAna? Please leave us a review!"
+msgstr ""
+
+#: inc/view/support.php:18
+msgid "Your review takes just 60 seconds and helps thousands of WordPress users discover this plugin."
+msgstr ""
+
+#: inc/view/support.php:22
+msgid "Rate on WordPress.org"
+msgstr ""
+
+#: inc/view/support.php:35
+msgid "Documentation"
+msgstr ""
+
+#: inc/view/support.php:36
+msgid "Step-by-step guides to set up TrueAna, understand your analytics data, and get the most out of every feature."
+msgstr ""
+
+#: inc/view/support.php:39
+msgid "Read the Docs"
+msgstr ""
+
+#: inc/view/support.php:50
 msgid "Priority Support"
 msgstr ""
 
-#: inc/view/support__premium_only.php:32
-msgid "We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin."
+#: inc/view/support.php:51
+msgid "Have a question or found a bug? Reach out via our support forum. We respond to all queries and welcome your suggestions."
 msgstr ""
 
-#: inc/view/support__premium_only.php:33
-msgid "Check Now"
+#: inc/view/support.php:54
+msgid "Contact Us"
 msgstr ""
 
-#: inc/view/support__premium_only.php:39
-msgid "Announcements"
+#: inc/view/support.php:65
+msgid "Latest Announcements"
 msgstr ""
 
-#: inc/view/support__premium_only.php:40
-msgid "Check here for out latest annoucements related to plugins. Advance woocommerce analytics is here to improve your conversion rates."
+#: inc/view/support.php:66
+msgid "Stay up to date with new releases, feature launches, and important updates for TrueAna."
 msgstr ""
 
-#: main/class-ga4wp-admin.php:41
-msgid "Hi there! You've been using GA4WP: Google Analytics for Wordpress Plugin. We hope it's been helpful. Would you mind rating it 5-stars to help spread the word?"
+#: inc/view/support.php:69
+msgid "Visit Blog"
 msgstr ""
 
-#: main/class-ga4wp-admin.php:46
-msgid "Ok, you deserve it"
+#: inc/view/support.php:80
+msgid "Write an Article"
 msgstr ""
 
-#: main/class-ga4wp-admin.php:49
-msgid "Nope, maybe later"
+#: inc/view/support.php:81
+msgid "Help fellow WordPress users discover TrueAna by writing a tutorial, case study, or review on your blog or website. We'd love to share it!"
 msgstr ""
 
-#: main/class-ga4wp-admin.php:52
-msgid "I already did"
+#: inc/view/support.php:84
+msgid "Get in Touch"
 msgstr ""
 
-#: main/class-ga4wp-admin.php:156
-msgid "GA4WP: Google Analytics for Wordpress"
+#: inc/view/support.php:95
+msgid "Connect With Us"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:284
-msgid "General Tracking settings"
+#: inc/view/support.php:96
+msgid "Visit our website to explore all features, read our blog, check premium plans, and connect with the TrueAna community."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:291
-msgid "Track Admins?"
+#: inc/view/support.php:99
+msgid "TrueAna.com"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:295
-msgid "Track Admin activity on Website."
+#: inc/view/support.php:110
+msgid "Support the Plugin"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:303
-msgid "Do not Track Pageviews"
+#: inc/view/support.php:111
+msgid "Every review, share, and article helps us keep TrueAna free and improving. Thank you for being part of our community!"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:307
-msgid "Stop tracking basic pageviews for website."
+#: inc/view/support.php:114
+msgid "View on WordPress.org"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:315
-msgid "Use Enhanced Link Attribution"
+#: inc/view/utm_builder.php:10
+msgid "UTM Builder — Campaign URL Generator"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:319
-msgid "Differenciating Links user interacted using enhanced link attribution."
+#: inc/view/utm_builder.php:11
+msgid "Build properly tagged campaign URLs for Google Analytics 4 without leaving WordPress. Track every marketing channel with precision."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:327
-msgid "WooCommerce Settings"
+#: inc/view/utm_builder.php:33
+msgid "Campaign URL Builder"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:334
-msgid "On Single Product Pages"
+#: inc/view/utm_builder.php:34
+msgid "Fill in source, medium, campaign name, term, and content to instantly generate a GA4-ready tagged URL for any destination page."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:338
-msgid "Tracking product impressions on Single Product pages."
+#: inc/view/utm_builder.php:43
+msgid "All UTM Parameters Supported"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:346
-msgid "On Archive Pages"
+#: inc/view/utm_builder.php:44
+msgid "Covers utm_source, utm_medium, utm_campaign, utm_term, and utm_content — everything GA4 recognises for campaign attribution."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:350
-msgid "Tracking product impressions on Archive pages."
+#: inc/view/utm_builder.php:53
+msgid "One-Click Copy"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:358
-msgid "Disable On Hold Transctions as Conversions"
+#: inc/view/utm_builder.php:54
+msgid "The generated URL updates live as you type. Copy it to clipboard in one click — ready to paste into email campaigns, ads, or social posts."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:362
-msgid "It will not consider on-hold transcations as conversions."
+#: inc/view/utm_builder.php:63
+msgid "QR Code Generation"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:378
-msgid "Anonymize IP addresses"
+#: inc/view/utm_builder.php:64
+msgid "Instantly generate a QR code for your tagged URL — perfect for print, offline events, or posters that need trackable links."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:382
-msgid "Anonymizes the ip address of website users."
+#: inc/view/utm_builder.php:73
+msgid "Campaign History"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:390
-msgid "Disable Demographics and Interest for Ads Remarketing"
+#: inc/view/utm_builder.php:74
+msgid "Previously generated URLs are saved in a history panel so you can copy or edit past campaigns without rebuilding them from scratch."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:394
-msgid "Disable tracking User and associated activity on bases of interest and demography"
+#: inc/view/utm_builder.php:83
+msgid "Google Analytics Integration"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:404
-msgid "Do not Track User ID"
+#: inc/view/utm_builder.php:84
+msgid "Tagged URLs flow directly into your GA4 Acquisition reports — source, medium, and campaign data appear automatically once visitors click your links."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:408
-msgid "Do not Track User and associated activity by their Ids."
+#: inc/view/utm_builder.php:92
+msgid "Upgrade to Pro to unlock the UTM Builder and start tracking every marketing campaign with precision."
 msgstr ""
 
-#: main/class-ga4wp-auth.php:416
-msgid "Enable Google Consent Mode"
+#: main/class-ga4wp-admin.php:115
+msgid "TrueAna"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:420
-msgid "Based on User Consent Google will collect data, otherwise by default it will not collect sensitive data"
+#: main/class-ga4wp-settings.php:327
+msgid "Real-Time Reports"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:428
-msgid "Save Tracking Options"
+#: main/class-ga4wp-settings.php:336
+msgid "Form Tracking Reports"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:465
-msgid "How to get your Goolge Optimize Container ID?j"
+#: main/class-ga4wp-settings.php:345
+msgid "Video Tracking Reports"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:490
-msgid "How to get your Facebook pixel code?"
+#: main/class-ga4wp-settings.php:354
+msgid "Conversion Reports"
 msgstr ""
 
-#: main/class-ga4wp-auth.php:572
-msgid "Save Events Options"
+#: main/class-ga4wp-settings.php:364
+msgid "Purchase Journey Reports"
 msgstr ""
+
+#: main/class-ga4wp-settings.php:374
+msgid "Product Performance Reports"
+msgstr ""
+
+#: main/class-ga4wp-settings.php:384
+#: main/traits/trait-ga4wp-ajax-handlers.php:489
+msgid "WooCommerce Subscriptions"
+msgstr ""
+
+#: main/class-ga4wp-settings.php:394
+msgid "Content Reports"
+msgstr ""
+
+#: main/class-ga4wp-settings.php:403
+msgid "Google Ads Reports"
+msgstr ""
+
+#: main/class-ga4wp-settings.php:412
+msgid "Google AdSense Reports"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:49
+msgid "General Tracking"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:50
+msgid "Control what activity gets tracked on your website."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:56
+msgid "Track Admins"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:57
+msgid "Include admin activity in Analytics tracking."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:63
+msgid "Do Not Track Pageviews"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:64
+msgid "Stop tracking basic pageview events for the website."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:70
+msgid "Enhanced Link Attribution"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:71
+msgid "Differentiate links the user interacted with using enhanced attribution."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:83
+msgid "WooCommerce"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:84
+msgid "Fine-tune how WooCommerce product events are tracked."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:90
+msgid "Single Product Pages"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:91
+msgid "Track product impressions on Single Product pages."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:97
+msgid "Archive Pages"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:98
+msgid "Track product impressions on Archive/category pages."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:104
+msgid "Skip On-Hold Transactions"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:105
+msgid "Do not count on-hold orders as conversions."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:117
+msgid "GDPR &amp; Privacy"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:118
+msgid "Manage privacy-related tracking controls."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:124
+msgid "Anonymize IP Addresses"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:125
+msgid "Mask the last octet of IP addresses before sending to GA."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:131
+msgid "Disable Demographics &amp; Remarketing"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:132
+msgid "Disable tracking users by interest and demographics."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:138
+msgid "Do Not Track User ID"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:139
+msgid "Prevent sending WordPress user IDs to Google Analytics."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:145
+msgid "Google Consent Mode"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:146
+msgid "Respect user consent signals before collecting sensitive data."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:165
+msgid "Measurement Protocol"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:166
+msgid "Enable server-side event sending via the GA4 Measurement Protocol."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:170
+msgid "API Secret Key"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:176
+msgid "Generate"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:185
+msgid "How to get your Measurement Protocol API secret?"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:194
+msgid "Google Analytics Debug Mode"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:195
+msgid "Send events to the GA4 DebugView for testing."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:201
+msgid "Enable Debug Mode"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:202
+msgid "Learn more about GA4 Debug Mode"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:210
+msgid "Save Tracking Settings"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:292
+msgid "User Login"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:292
+msgid "Fired when a registered user logs in."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:293
+msgid "Login Errors"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:293
+msgid "Fired when a login attempt fails."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:294
+msgid "User Logout"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:294
+msgid "Fired when a user logs out."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:295
+msgid "User Sign-up"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:295
+msgid "Fired when a new user account is created."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:296
+msgid "Wrote Review"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:296
+msgid "Fired when a product review is submitted."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:297
+msgid "Commented"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:297
+msgid "Fired when a comment is posted."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:298
+msgid "Error Logged"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:298
+msgid "Fired when a WooCommerce shutdown error is recorded."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:300
+msgid "Viewed Sign-up Form"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:300
+msgid "Fired when the WooCommerce registration form is shown."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:301
+msgid "Viewed Shop"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:301
+msgid "Fired on shop, category, and product archive pages."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:302
+msgid "Viewed Product"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:302
+msgid "Fired when a single product page is viewed."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:303
+msgid "Added to Cart"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:303
+msgid "Fired when a product is added to the cart."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:304
+msgid "Removed from Cart"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:304
+msgid "Fired when a product is removed from the cart."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:305
+msgid "Changed Cart Quantity"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:305
+msgid "Fired when a cart item quantity is updated."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:306
+msgid "Viewed Cart"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:306
+msgid "Fired when the cart page is viewed."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:307
+msgid "Invalid Coupon"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:307
+msgid "Fired when an invalid coupon code is entered."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:308
+msgid "Coupon Applied"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:308
+msgid "Fired when a coupon is successfully applied."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:309
+msgid "Coupon Removed"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:309
+msgid "Fired when a coupon is removed from the cart."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:310
+msgid "Began Checkout"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:310
+msgid "Fired when the checkout form is loaded."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:311
+msgid "Filled Checkout Form"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:311
+msgid "Fired when checkout form fields are being filled."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:312
+msgid "Added Payment Method"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:312
+msgid "Fired when a payment method is selected at checkout."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:313
+msgid "Added Shipping Method"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:313
+msgid "Fired when a shipping method is chosen."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:314
+msgid "Order Failed"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:314
+msgid "Fired when an order transitions to failed status."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:315
+msgid "Processing Payment"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:315
+msgid "Fired when checkout is submitted and the order is created."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:316
+msgid "Purchase Completed"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:316
+msgid "Fired when an order reaches completed or processing status."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:317
+msgid "Viewed Account"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:317
+msgid "Fired on the My Account page."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:318
+msgid "Viewed Order"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:318
+msgid "Fired when a customer views an order detail page."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:319
+msgid "Changed Password"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:319
+msgid "Fired when a user updates their account password."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:320
+msgid "Lost Password"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:320
+msgid "Fired when a password reset is requested."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:321
+msgid "Estimated Shipping"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:321
+msgid "Fired when shipping is calculated in the cart."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:322
+msgid "Order Cancelled"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:322
+msgid "Fired when an order is cancelled."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:323
+msgid "Order Refunded"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:323
+msgid "Fired when an order is fully or partially refunded."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:325
+msgid "Subscription Created"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:325
+msgid "Fired when a new subscription is placed."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:326
+msgid "Payment Failed"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:326
+msgid "Fired when a subscription payment attempt fails."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:327
+msgid "Renewal Payment Failed"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:327
+msgid "Fired when a renewal payment fails."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:328
+msgid "Subscription Cancelled"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:328
+msgid "Fired when a subscription is cancelled."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:329
+msgid "Subscription Expired"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:329
+msgid "Fired when a subscription reaches its expiration date."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:330
+msgid "Subscription On Hold"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:330
+msgid "Fired when a subscription is paused."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:331
+msgid "Trial Period Ended"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:331
+msgid "Fired when a free trial period ends."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:332
+msgid "Expiration Scheduled"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:332
+msgid "Fired on the subscription's scheduled expiration date."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:333
+msgid "Prepaid Term Ended"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:333
+msgid "Fired when a prepaid subscription period ends."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:334
+msgid "Plan Switched"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:334
+msgid "Fired when a subscriber upgrades or downgrades their plan."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:371
+msgid "General Events"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:372
+msgid "Core user interaction events tracked on every WordPress site."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:388
+msgid "WooCommerce Events"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:389
+msgid "Store interactions — browsing, cart, checkout, and order lifecycle events."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:431
+msgid "WooCommerce Subscriptions Events"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:432
+msgid "Subscription lifecycle events — creation, renewals, cancellations, and plan changes."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:455
+msgid "Save Event Settings"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:480
+msgid "Real-Time Visitors"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:480
+msgid "Live visitor count, active pages, and real-time traffic sources."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:481
+msgid "Audience & Demographics"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:481
+msgid "Country, language, device, and age-group overview reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:482
+msgid "Acquisition & Traffic"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:482
+msgid "Channel, source/medium, and screen-size breakdown reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:483
+msgid "Behavior & Engagement"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:483
+msgid "Page performance, average time on page, and demographic reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:484
+msgid "Form views, submissions, and conversion rate broken down by form name."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:485
+msgid "Video start count, completion rate, and average watch depth per video title."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:486
+msgid "WooCommerce Conversions"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:486
+msgid "Product revenue, source revenue, device share, and regional sales."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:487
+msgid "Customer Journey"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:487
+msgid "User journey funnel and path analysis reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:488
+msgid "Store Performance"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:488
+msgid "Cart abandonment, checkout funnel, and average order value."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:489
+msgid "MRR, ARR, churn rate, renewals, and subscriber lifecycle analytics."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:490
+msgid "Ad group cost, success, search query, and distribution network reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:491
+msgid "Google AdSense"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:491
+msgid "AdSense revenue and ad clicks broken down by page title."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:492
+msgid "Content Performance"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:492
+msgid "Content performance based on author, categories, tags and other reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:502
+msgid "Dashboard Report Tabs"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:503
+msgid "Choose which report tabs are visible on the Analytics Dashboard. Disabled tabs will be hidden from the dashboard navigation."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:509
+msgid "Pro report tabs are locked. Upgrade to enable real-time, form tracking, ads, and WooCommerce reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:600
+msgid "Edit in Explore"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:607
+msgid "Delete"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:619
+msgid "Delete this saved report? This cannot be undone."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:631
+msgid "Report deleted."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:720
+msgid "Save Dashboard Settings"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:734
+msgid "Custom Dimensions — WordPress Data in GA4"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:735
+msgid "Register WordPress-specific dimensions in your GA4 property to segment reports by author, category, post type, user role, and more."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:753
+msgid "Author & User Tracking"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:754
+msgid "Send Author ID and User ID dimensions so GA4 reports can be filtered by content creator or logged-in user."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:760
+msgid "Post Category & Tag"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:761
+msgid "Track which categories and tags drive the most traffic — enabling content-strategy reports inside GA4."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:767
+msgid "Post Type Dimension"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:768
+msgid "Distinguish between posts, pages, products, and custom post types in your GA4 reports."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:774
+msgid "User Role Dimension"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:775
+msgid "See how admins, editors, subscribers, and guests behave differently on your site."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:781
+msgid "Form & Subscription Dimensions"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:782
+msgid "Pass Form ID, Form Name, Conversion Type, and Subscription ID alongside events for richer reporting."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:788
+msgid "One-Click GA4 Registration"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:789
+msgid "Generate all required custom dimensions directly in your GA4 property from inside WordPress — no manual setup needed."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:794
+msgid "Upgrade to Pro to enable Custom Dimensions and unlock WordPress-native GA4 segmentation."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:808
+msgid "Overview Report"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:808
+msgid "Users and new users trend line chart on the WordPress dashboard."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:809
+msgid "Users by Country"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:809
+msgid "Bar chart showing user distribution by country."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:810
+msgid "Users by Language"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:810
+msgid "Bar chart showing user distribution by browser language."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:811
+msgid "Users by Device"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:811
+msgid "Donut chart showing user distribution by device category."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:812
+msgid "Quick Stats"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:812
+msgid "Summary cards for sessions, pageviews, and total users at a glance."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:822
+msgid "WordPress Dashboard Widgets"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:823
+msgid "Choose which TrueAna widgets are shown on the WordPress admin dashboard."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:851
+msgid "Save Widget Settings"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:864
+msgid "Email Analytics Reports — Scheduled Summaries"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:865
+msgid "Receive automated GA4 analytics summaries in your inbox on a daily, weekly, or monthly schedule — without opening WordPress."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:883
+msgid "Scheduled Email Reports"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:884
+msgid "Set daily, weekly, or monthly reports to deliver automatically — no manual checks required."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:890
+msgid "Multiple Recipients"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:891
+msgid "Send reports to your entire team — add as many email addresses as you need."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:897
+msgid "Choose Report Sections"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:898
+msgid "Select which sections to include: Audience, Acquisition, Behavior, Conversions, and more."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:904
+msgid "Custom Metrics Selection"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:905
+msgid "Pick exactly which KPIs appear in your email — users, sessions, pageviews, revenue, and more."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:911
+msgid "Period Comparison"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:912
+msgid "Each report compares the current period to the previous one so trends are immediately visible."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:918
+msgid "Test Before You Send"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:919
+msgid "Send a test email at any time to preview exactly what your team will receive in their inbox."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:924
+msgid "Upgrade to Pro to enable scheduled Email Analytics Reports for your team."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:978
+msgid "Form Name"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:979
+msgid "Form ID"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:980
+msgid "Author ID"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:981
+msgid "Post Category"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:982
+msgid "Post Tag"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:983
+msgid "Post Type"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1009
+msgid "Custom Dimensions Required"
+msgstr ""
+
+#. translators: %s: comma-separated list of dimension names
+#: main/traits/trait-ga4wp-ajax-handlers.php:1015
+#, php-format
+msgid "This report requires the following custom dimensions to be registered in your GA4 property before data can appear: <strong>%s</strong>."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1023
+msgid "Go to Status Tab to Create Them"
+msgstr ""
+
+#. translators: %s: comma-separated list of dimension names
+#: main/traits/trait-ga4wp-ajax-handlers.php:1037
+#, php-format
+msgid "Some reports are hidden because these custom dimensions are not yet created in GA4: <strong>%s</strong>."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1042
+msgid "Create them in the Status tab."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1134
+msgid "Your access token has expired or been revoked. Please re-link your Google Analytics account from the Authentication tab."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1136
+msgid "Permission denied. Your account may lack the required Analytics scopes. Please re-link and grant both read and edit permissions."
+msgstr ""
+
+#. translators: %s: URL to Status tab
+#: main/traits/trait-ga4wp-ajax-handlers.php:1142
+#, php-format
+msgid "The Form Tracking report requires the <strong>Form Name</strong> and <strong>Form ID</strong> custom dimensions to be registered in your GA4 property. <a href=\"%s\">Visit the Status tab to create them automatically.</a>"
+msgstr ""
+
+#. translators: %s: URL to Status tab
+#: main/traits/trait-ga4wp-ajax-handlers.php:1148
+#, php-format
+msgid "The Content Performance report requires custom dimensions (Author ID, Post Category, Post Tag, Post Type) to be registered in your GA4 property. <a href=\"%s\">Visit the Status tab to create them automatically.</a>"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1152
+msgid "Invalid configuration. One or more dimensions or metrics are unsupported for this report. Check your custom dimension settings."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1155
+msgid "The requested Google Analytics property was not found. Verify your property ID in Authentication settings."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1161
+msgid "No data was returned for this report. This can happen if the date range has no traffic, or if a required linked service (e.g. Google Ads or AdSense) is not connected to your GA4 property."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1167
+msgid "Data could not be loaded"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1171
+msgid "Show API error details"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1203
+#: main/traits/trait-ga4wp-ajax-handlers.php:1276
+#: main/traits/trait-ga4wp-ajax-handlers.php:1338
+msgid "Could not connect to Google Analytics. Please re-link your account."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1270
+msgid "Account name is required."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1286
+#, php-format
+msgid "Permission denied (HTTP 403). Your linked Google account may lack the analytics.edit scope. Try re-linking your account. API error: %s"
+msgstr ""
+
+#. translators: 1: HTTP status code, 2: raw API error message
+#: main/traits/trait-ga4wp-ajax-handlers.php:1290
+#, php-format
+msgid "Google API error (HTTP %1$d): %2$s"
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1292
+msgid "Account creation failed. You can create an account directly at analytics.google.com."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1334
+msgid "Account, property name, and website URL are required."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1342
+msgid "Failed to create property. Please check your Google Analytics permissions and try again."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1347
+msgid "Property created but data stream setup failed. Please check Google Analytics and try connecting manually."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1366
+msgid "An unexpected error occurred. Please try again."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1406
+msgid "No GA4 property connected."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1412
+msgid "No access token available. Please authenticate with Google first."
+msgstr ""
+
+#: main/traits/trait-ga4wp-ajax-handlers.php:1423
+msgid "Unknown error creating the Measurement Protocol secret."
+msgstr ""
+
+#: main/traits/trait-ga4wp-chart-renderer.php:131
+#: main/traits/trait-ga4wp-chart-renderer.php:137
+msgid "Prev. Period"
+msgstr ""
+
+#: main/traits/trait-ga4wp-chart-renderer.php:132
+#: main/traits/trait-ga4wp-chart-renderer.php:138
+msgid "Change"
+msgstr ""
+
+#: main/traits/trait-ga4wp-dashboard.php:119
+msgid "You're almost there! Once you complete GA4WP setup you start receiving different facts and reports from Google Analytics for Website Here."
+msgstr ""
+
+#: main/traits/trait-ga4wp-dashboard.php:120
+msgid "Complete Setup"
+msgstr ""
+
+

@@ -1,70 +1,120 @@
 <?php
-
-/* controlling view of cache settings*/
 if (!defined('ABSPATH')) {
   die;
 }
 ?>
-<div class="ga4wp-col s12 ga4wp-options">
-  <div class="ga4wp-col s12 top-mar">
-    <div class="ga4wp-col m6 s12">
-      <h5 class="left zero-mar">
-        <?php _e('Support', 'ga-for-wp-text'); ?>
-      </h5>
-    </div>
-    <div class="ga4wp-col m6 s12">
-      <a class="waves-effect waves-light btn right" href="https://ga4wp.com/" target="_blank">
-        <?php _e('Plugin Website', 'ga-for-wp-text'); ?>
-      </a>
-    </div>
+<div class="ga4wp-col s12 ga4wp-options ga4wp-support-page">
+
+  <div class="ga4wp-support-header">
+    <h4><?php _e('Support &amp; Community', 'ga-for-wp-text'); ?></h4>
+    <p><?php _e('Everything you need to get help, share feedback, and grow with TrueAna.', 'ga-for-wp-text'); ?></p>
   </div>
-  <div class="clearfix"></div>
-  <div class="divider top-mar"></div>
+
+  <!-- Review Banner -->
+  <div class="ga4wp-support-review-banner">
+    <div class="ga4wp-support-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <div class="ga4wp-support-review-text">
+      <strong><?php _e('Enjoying TrueAna? Please leave us a review!', 'ga-for-wp-text'); ?></strong>
+      <span><?php _e('Your review takes just 60 seconds and helps thousands of WordPress users discover this plugin.', 'ga-for-wp-text'); ?></span>
+    </div>
+    <a href="https://wordpress.org/support/plugin/ga-for-wp/reviews/#new-post" target="_blank" class="ga4wp-support-btn ga4wp-support-btn-star">
+      <span class="material-icons-round">star</span>
+      <?php _e('Rate on WordPress.org', 'ga-for-wp-text'); ?>
+    </a>
+  </div>
+
+  <!-- Cards Grid -->
   <div class="ga4wp-row">
-    <div class="ga4wp-col l4 s12">
-      <div class="center promo promo-example">
-        <i class="material-icons">book</i>
-        <p class="promo-caption">
-          <?php _e('Documentation', 'ga-for-wp-text'); ?>
-        </p>
-        <p class="light center">
-          <?php _e('Documentation is help to configure plugin as well it also help you better understand data collected by plugin for your google analytics.', 'ga-for-wp-text'); ?>
-        </p>
-        <a class="waves-effect waves-light btn top-mar" href="https://ga4wp.com/documentation" target="_blank">
-          <?php _e('Know More', 'ga-for-wp-text'); ?>
+
+    <!-- Documentation -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-brand">
+          <span class="material-icons-round">menu_book</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Documentation', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Step-by-step guides to set up TrueAna, understand your analytics data, and get the most out of every feature.', 'ga-for-wp-text'); ?></div>
+        <a href="https://trueana.com/documentation/" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">open_in_new</span>
+          <?php _e('Read the Docs', 'ga-for-wp-text'); ?>
         </a>
       </div>
     </div>
-    <div class="ga4wp-col l4 s12">
-      <div class="center promo promo-example">
-        <i class="material-icons">mail</i>
-        <p class="promo-caption">
-          <?php _e('Priority Support', 'ga-for-wp-text'); ?>
-        </p>
-        <p class="light center">
-          <?php _e('We use plugin forum to answer any plugin realted queries. We also welcome your suggestions and improvements you require for plugin.', 'ga-for-wp-text'); ?>
-        </p>
-        <a class="waves-effect waves-light btn top-mar" href="https://ga4wp.com/contact-us/">
-          <?php _e('Check Now', 'ga-for-wp-text'); ?>
+
+    <!-- Priority Support -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-teal">
+          <span class="material-icons-round">support_agent</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Priority Support', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Have a question or found a bug? Reach out via our support forum. We respond to all queries and welcome your suggestions.', 'ga-for-wp-text'); ?></div>
+        <a href="https://trueana.com/contact-us/" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">open_in_new</span>
+          <?php _e('Contact Us', 'ga-for-wp-text'); ?>
         </a>
       </div>
     </div>
-    <div class="ga4wp-col l4 s12">
-      <div class="center promo promo-example">
-        <i class="material-icons">notifications</i>
-        <p class="promo-caption">
-          <?php _e('Announcements', 'ga-for-wp-text'); ?>
-        </p>
-        <p class="light center">
-          <?php _e('Check here for out latest annoucements related to plugins. Advance woocommerce analytics is here to improve your conversion rates.', 'ga-for-wp-text'); ?>
-        </p>
-        <a class="waves-effect waves-light btn top-mar" href="https://ga4wp.com/" target="_blank">
-          <?php _e('Know More', 'ga-for-wp-text'); ?>
+
+    <!-- Announcements -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-amber">
+          <span class="material-icons-round">campaign</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Latest Announcements', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Stay up to date with new releases, feature launches, and important updates for TrueAna.', 'ga-for-wp-text'); ?></div>
+        <a href="https://trueana.com/blog" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">open_in_new</span>
+          <?php _e('Visit Blog', 'ga-for-wp-text'); ?>
         </a>
       </div>
     </div>
+
+    <!-- Write an Article -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-violet">
+          <span class="material-icons-round">edit_note</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Write an Article', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Help fellow WordPress users discover TrueAna by writing a tutorial, case study, or review on your blog or website. We\'d love to share it!', 'ga-for-wp-text'); ?></div>
+        <a href="https://trueana.com/contact-us/" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">open_in_new</span>
+          <?php _e('Get in Touch', 'ga-for-wp-text'); ?>
+        </a>
+      </div>
+    </div>
+
+    <!-- Connect With Us -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-emerald">
+          <span class="material-icons-round">public</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Connect With Us', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Visit our website to explore all features, read our blog, check premium plans, and connect with the TrueAna community.', 'ga-for-wp-text'); ?></div>
+        <a href="https://trueana.com/" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">language</span>
+          <?php _e('TrueAna.com', 'ga-for-wp-text'); ?>
+        </a>
+      </div>
+    </div>
+
+    <!-- WordPress.org Plugin Page -->
+    <div class="ga4wp-col s12 m6 l4">
+      <div class="ga4wp-support-card">
+        <div class="ga4wp-support-card-icon ga4wp-support-icon-rose">
+          <span class="material-icons-round">favorite</span>
+        </div>
+        <div class="ga4wp-support-card-title"><?php _e('Support the Plugin', 'ga-for-wp-text'); ?></div>
+        <div class="ga4wp-support-card-desc"><?php _e('Every review, share, and article helps us keep TrueAna free and improving. Thank you for being part of our community!', 'ga-for-wp-text'); ?></div>
+        <a href="https://wordpress.org/plugins/ga-for-wp/" target="_blank" class="ga4wp-support-btn">
+          <span class="material-icons-round">open_in_new</span>
+          <?php _e('View on WordPress.org', 'ga-for-wp-text'); ?>
+        </a>
+      </div>
+    </div>
+
   </div>
-  <div class="divider top-mar"></div>
-  <div class="clearfix"></div>
 </div>
-<?php
