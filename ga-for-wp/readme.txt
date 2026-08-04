@@ -5,11 +5,11 @@ Tags: google analytics, google analytics 4, ga4, woocommerce analytics, facebook
 Requires at least: 5.7
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 3.0.0
+Stable tag: 3.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Connect Google Analytics to WordPress in few clicks. Track all important WooCommerce and WordPress events with a real GA4 dashboard built into wp-admin.
+Connect Google Analytics to WordPress in a few clicks. Track key WooCommerce & WordPress events with a GA4 dashboard built into wp-admin.
 
 == Description ==
 
@@ -85,33 +85,6 @@ No Analytics data passes through a third-party proxy server. Every Google Analyt
 
 **WooCommerce Event Tracking — 30+ events, all free**
 
-TrueAna tracks the complete WooCommerce shopping journey out of the box. Every event is individually toggled on/off from Settings:
-
-* Shop archive / category page viewed with product impressions
-* Product detail page viewed with price, variant, and category
-* Item added to cart with quantity and price
-* Item removed from cart
-* Cart item quantity updated
-* Cart page loaded with basket total
-* Coupon successfully applied with discount value
-* Failed coupon attempt with error message
-* Coupon removed from cart
-* Checkout page loaded with basket total
-* Billing and shipping fields completed
-* Shipping method selected at checkout
-* Payment method selected at checkout
-* Order submitted, awaiting payment
-* Payment failed with order value
-* Successful purchase with full order data (items, revenue, tax, shipping, coupons)
-* Order moved to cancelled status
-* Refund issued with refunded amount
-* Shipping cost calculated in cart
-* My Account page visited
-* Order detail page visited
-* Account password updated
-* Password reset requested
-* New WooCommerce account created
-
 **Conversion Pixels — free**
 
 * **Facebook Pixel** — PageView on all pages; ViewContent on product pages; AddToCart on cart events; Purchase on order completion
@@ -131,17 +104,6 @@ TrueAna tracks the complete WooCommerce shopping journey out of the box. Every e
 **WooCommerce Subscriptions Event Tracking (Pro)**
 
 Requires the WooCommerce Subscriptions plugin. TrueAna Pro tracks the complete subscription lifecycle — 10 events automatically fired via WooCommerce Subscriptions hooks:
-
-* New subscription started at checkout
-* Plan changed, upgraded, or downgraded
-* Recurring payment failure
-* Renewal payment declined
-* Subscriber cancels the subscription
-* Subscription reached its end date
-* Subscription paused
-* Free trial period ended
-* Upcoming expiration flagged
-* Prepaid period completed
 
 Every subscription event includes custom dimension parameters — automatically populated once custom dimensions are set up.
 
@@ -357,6 +319,9 @@ TrueAna manages its own OAuth connection and its own copy of `gtag.js`. Running 
 16. GDPR & privacy controls — IP anonymization, Consent Mode, and user ID tracking options.
 
 == Changelog ==
+
+= 3.1.0 =
+* Fixed UTF-8 BOM Issue
 
 = 3.0.0 =
 * New: Separate Audience, Acquisition, and Behavior report dashboards.

@@ -3,9 +3,9 @@
 /*
 Plugin Name: TrueAna - True Analytics Dashboard
 Plugin URI: https://trueana.com/
-Description: Connect Google Analytics to WordPress in few clicks. Track all important WooCommerce and WordPress events with a real GA4 dashboard built into wp-admin.
+Description: Connect Google Analytics to WordPress in a few clicks. Track key WooCommerce & WordPress events with a GA4 dashboard built into wp-admin.
 Author: Passionate Brains
-Version: 3.0.0
+Version: 3.1.0
 Requires at least: 5.7
 Requires PHP: 7.4
 WC requires at least: 3.7.0
@@ -79,7 +79,7 @@ if (function_exists('gfw_fs')) {
         define('GA4WP_PREFIX', 'GA4WP_');
     }
     if (!defined('GA4WP_VERSION')) {
-        define('GA4WP_VERSION', '3.0.0');
+        define('GA4WP_VERSION', '3.1.0');
     }
     add_action('before_woocommerce_init', function () {
         if (class_exists(\Automattic\WooCommerce\Utilities\FeaturesUtil::class)) {

@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 /**
  * Class: GA4WP_Auth
  *
