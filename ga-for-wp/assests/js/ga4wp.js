@@ -1,4 +1,4 @@
-﻿/* GA4WP — Modern UI v3 */
+/* GA4WP — Modern UI v3 */
 var ga4wpAuthWin = null;
 
 /* Builds a diagnostic message from a failed jqXHR so AJAX failures show the
