@@ -5,7 +5,7 @@ Tags: google analytics, google analytics 4, ga4, woocommerce analytics, facebook
 Requires at least: 5.7
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 3.1.0
+Stable tag: 3.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -319,6 +319,9 @@ TrueAna manages its own OAuth connection and its own copy of `gtag.js`. Running 
 16. GDPR & privacy controls — IP anonymization, Consent Mode, and user ID tracking options.
 
 == Changelog ==
+
+= 3.2.0 =
+* Updated Freemius SDK 
 
 = 3.1.0 =
 * Fixed UTF-8 BOM Issue
